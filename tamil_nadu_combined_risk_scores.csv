@@ -1,0 +1,16 @@
+school_name,connectivity,sar_flood_pct,water_occurrence_pct,historical_risk,sar_norm,jrc_norm,combined_score,connectivity_penalty,final_score,final_risk,rank,latitude,longitude
+School Puducherry Border,connected,10.87,97.2,HIGH,100.0,97.2,98.32,0,98.32,CRITICAL,1,11.93,79.83
+Panchayat School Nagapattinam,none,1.07,44.96,HIGH,9.84,44.96,30.91,10,40.91,CRITICAL,2,10.76,79.84
+School Ramanathapuram,none,1.59,38.81,HIGH,14.63,38.81,29.14,10,39.14,HIGH,3,9.37,78.83
+School Tuticorin,connected,0.34,60.95,HIGH,3.13,60.95,37.82,0,37.82,HIGH,4,8.8,78.15
+Govt School Cuddalore,none,1.56,30.18,HIGH,14.35,30.18,23.85,10,33.85,HIGH,5,11.75,79.75
+School Kanchipuram,none,0.0,29.21,HIGH,0.0,29.21,17.53,10,27.53,HIGH,6,12.83,79.7
+Govt School Tiruchirappalli,none,0.34,25.28,HIGH,3.13,25.28,16.42,10,26.42,HIGH,7,10.79,78.68
+Govt School Thanjavur,connected,0.0,43.46,HIGH,0.0,43.46,26.08,0,26.08,HIGH,8,10.78,79.13
+High School Vellore,connected,0.63,32.9,HIGH,5.8,32.9,22.06,0,22.06,HIGH,9,12.92,79.13
+Panchayat School Tirunelveli,none,0.0,19.47,MEDIUM,0.0,19.47,11.68,10,21.68,HIGH,10,8.71,77.69
+School Villupuram,none,0.63,2.76,LOW,5.8,2.76,3.98,10,13.98,MEDIUM,11,11.93,79.49
+Govt School Madurai,connected,0.95,9.79,MEDIUM,8.74,9.79,9.37,0,9.37,LOW,12,9.93,78.12
+Govt High School Chennai,connected,0.0,11.91,MEDIUM,0.0,11.91,7.15,0,7.15,LOW,13,13.08,80.27
+High School Coimbatore,connected,0.0,0.0,LOW,0.0,0.0,0.0,0,0.0,LOW,14,11.01,76.96
+Govt School Salem,connected,0.0,0.0,LOW,0.0,0.0,0.0,0,0.0,LOW,15,11.65,78.16

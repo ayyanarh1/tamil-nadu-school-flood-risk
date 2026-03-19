@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_287cc88449efe64286770f83da64f72c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position:fixed;bottom:30px;left:30px;
+     background:white;padding:14px;border-radius:10px;
+     border:1px solid #ccc;font-size:12px;z-index:1000;
+     box-shadow:2px 2px 6px rgba(0,0,0,0.15)">
+     <b>🏫 Master Flood Risk Score</b><br>
+     <b>SAR + JRC + GFD (3 sources)</b><br><br>
+     <span style='color:#cc0000;font-size:16px'>●</span> Critical (≥ 50)<br>
+     <span style='color:#ff6600;font-size:16px'>●</span> High (25–50)<br>
+     <span style='color:#ffaa00;font-size:16px'>●</span> Medium (10–25)<br>
+     <span style='color:#2d8a4e;font-size:16px'>●</span> Low (< 10)<br><br>
+     <i>Size = risk score magnitude</i>
+</div>
+    
+            <div class="folium-map" id="map_287cc88449efe64286770f83da64f72c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_287cc88449efe64286770f83da64f72c = L.map(
+                "map_287cc88449efe64286770f83da64f72c",
+                {
+                    center: [10.5, 78.5],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_75391446f010c8ff5d884c2020ebda0c = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_75391446f010c8ff5d884c2020ebda0c.addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+            var circle_marker_23d25257771067f2a118eb40036acf2a = L.circleMarker(
+                [11.93, 79.83],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 3}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+        var popup_5ed8ab2e3f54d2699252a578d3aed930 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_6802441bebcde557f34fea50622e3d40 = $(`<div id="html_6802441bebcde557f34fea50622e3d40" style="width: 100.0%; height: 100.0%;">             <b>#1 School Puducherry Border</b><br>             <hr style='margin:4px 0'>             🛰 <b>SAR 2023:</b> 100.0%<br>             📅 <b>JRC History:</b> 97.2%<br>             🌊 <b>GFD Events:</b> 98.0%<br>             📊 <b>Master score:</b> 98.2<br>             📡 <b>Connectivity:</b> ✅ Connected<br>             <hr style='margin:4px 0'>             🎯 <b>Risk: CRITICAL</b>             </div>`)[0];
+                popup_5ed8ab2e3f54d2699252a578d3aed930.setContent(html_6802441bebcde557f34fea50622e3d40);
+            
+        
+
+        circle_marker_23d25257771067f2a118eb40036acf2a.bindPopup(popup_5ed8ab2e3f54d2699252a578d3aed930)
+        ;
+
+        
+    
+    
+            circle_marker_23d25257771067f2a118eb40036acf2a.bindTooltip(
+                `<div>
+                     #1 School Puducherry Border
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e01adf66f14ed9501eede1304142ef01 = L.marker(
+                [11.93, 79.83],
+                {
+}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+            var div_icon_a0356a143ab8583f33c7543e108fed1a = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#1\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_e01adf66f14ed9501eede1304142ef01.setIcon(div_icon_a0356a143ab8583f33c7543e108fed1a);
+            
+    
+            var circle_marker_840dcac95a06108f230a38d88ea5b2e5 = L.circleMarker(
+                [10.76, 79.84],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 3}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+        var popup_c097123d560a13541fb81fb980c56efc = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_6d462cf6d801a9eb6f34ac512d369a74 = $(`<div id="html_6d462cf6d801a9eb6f34ac512d369a74" style="width: 100.0%; height: 100.0%;">             <b>#2 Panchayat School Nagapattinam</b><br>             <hr style='margin:4px 0'>             🛰 <b>SAR 2023:</b> 9.8%<br>             📅 <b>JRC History:</b> 45.0%<br>             🌊 <b>GFD Events:</b> 58.0%<br>             📊 <b>Master score:</b> 52.0<br>             📡 <b>Connectivity:</b> ⚠ No connectivity<br>             <hr style='margin:4px 0'>             🎯 <b>Risk: CRITICAL</b>             </div>`)[0];
+                popup_c097123d560a13541fb81fb980c56efc.setContent(html_6d462cf6d801a9eb6f34ac512d369a74);
+            
+        
+
+        circle_marker_840dcac95a06108f230a38d88ea5b2e5.bindPopup(popup_c097123d560a13541fb81fb980c56efc)
+        ;
+
+        
+    
+    
+            circle_marker_840dcac95a06108f230a38d88ea5b2e5.bindTooltip(
+                `<div>
+                     #2 Panchayat School Nagapattinam
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_b93a326a7ee44066f6f6cffc9a8a5860 = L.marker(
+                [10.76, 79.84],
+                {
+}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+            var div_icon_c8f2bf0721995770015f5f929e70919a = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#2\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_b93a326a7ee44066f6f6cffc9a8a5860.setIcon(div_icon_c8f2bf0721995770015f5f929e70919a);
+            
+    
+            var circle_marker_59811b84875ee3943bc417e40123006b = L.circleMarker(
+                [9.37, 78.83],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+        var popup_46ebbdb772812df41df4980e34e9c47a = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_6d9f3e9bfb8d9307ed64f9fc638f4e9a = $(`<div id="html_6d9f3e9bfb8d9307ed64f9fc638f4e9a" style="width: 100.0%; height: 100.0%;">             <b>#3 School Ramanathapuram</b><br>             <hr style='margin:4px 0'>             🛰 <b>SAR 2023:</b> 14.6%<br>             📅 <b>JRC History:</b> 38.8%<br>             🌊 <b>GFD Events:</b> 0.0%<br>             📊 <b>Master score:</b> 38.8<br>             📡 <b>Connectivity:</b> ⚠ No connectivity<br>             <hr style='margin:4px 0'>             🎯 <b>Risk: HIGH</b>             </div>`)[0];
+                popup_46ebbdb772812df41df4980e34e9c47a.setContent(html_6d9f3e9bfb8d9307ed64f9fc638f4e9a);
+            
+        
+
+        circle_marker_59811b84875ee3943bc417e40123006b.bindPopup(popup_46ebbdb772812df41df4980e34e9c47a)
+        ;
+
+        
+    
+    
+            circle_marker_59811b84875ee3943bc417e40123006b.bindTooltip(
+                `<div>
+                     #3 School Ramanathapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_883dc2bd73ea24ea48cf9f52b9ac4019 = L.marker(
+                [9.37, 78.83],
+                {
+}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+            var div_icon_b203b5d8785489bbd8cdaa13dd4df950 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#3\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_883dc2bd73ea24ea48cf9f52b9ac4019.setIcon(div_icon_b203b5d8785489bbd8cdaa13dd4df950);
+            
+    
+            var circle_marker_ca6a2938805c7d739a5614229edd391e = L.circleMarker(
+                [11.75, 79.75],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+        var popup_fc20bafe03167a653b6223e031fa1425 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_b4c100ac33f8ea26537ef5e806cc9af6 = $(`<div id="html_b4c100ac33f8ea26537ef5e806cc9af6" style="width: 100.0%; height: 100.0%;">             <b>#4 Govt School Cuddalore</b><br>             <hr style='margin:4px 0'>             🛰 <b>SAR 2023:</b> 14.4%<br>             📅 <b>JRC History:</b> 30.2%<br>             🌊 <b>GFD Events:</b> 0.0%<br>             📊 <b>Master score:</b> 34.4<br>             📡 <b>Connectivity:</b> ⚠ No connectivity<br>             <hr style='margin:4px 0'>             🎯 <b>Risk: HIGH</b>             </div>`)[0];
+                popup_fc20bafe03167a653b6223e031fa1425.setContent(html_b4c100ac33f8ea26537ef5e806cc9af6);
+            
+        
+
+        circle_marker_ca6a2938805c7d739a5614229edd391e.bindPopup(popup_fc20bafe03167a653b6223e031fa1425)
+        ;
+
+        
+    
+    
+            circle_marker_ca6a2938805c7d739a5614229edd391e.bindTooltip(
+                `<div>
+                     #4 Govt School Cuddalore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_82f422ccb9a11928f97d677cc54473db = L.marker(
+                [11.75, 79.75],
+                {
+}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+            var div_icon_690b95a3d89fb0feab5bb687137dfada = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#4\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_82f422ccb9a11928f97d677cc54473db.setIcon(div_icon_690b95a3d89fb0feab5bb687137dfada);
+            
+    
+            var circle_marker_5364df51015ff81f1e5fa8585d6f3c87 = L.circleMarker(
+                [8.8, 78.15],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+        var popup_86d459f4689f8a808c4e6da2062b0dc1 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_612dca0efc85ba2ec5a165c8f2ceb8a6 = $(`<div id="html_612dca0efc85ba2ec5a165c8f2ceb8a6" style="width: 100.0%; height: 100.0%;">             <b>#5 School Tuticorin</b><br>             <hr style='margin:4px 0'>             🛰 <b>SAR 2023:</b> 3.1%<br>             📅 <b>JRC History:</b> 61.0%<br>             🌊 <b>GFD Events:</b> 13.0%<br>             📊 <b>Master score:</b> 34.0<br>             📡 <b>Connectivity:</b> ✅ Connected<br>             <hr style='margin:4px 0'>             🎯 <b>Risk: HIGH</b>             </div>`)[0];
+                popup_86d459f4689f8a808c4e6da2062b0dc1.setContent(html_612dca0efc85ba2ec5a165c8f2ceb8a6);
+            
+        
+
+        circle_marker_5364df51015ff81f1e5fa8585d6f3c87.bindPopup(popup_86d459f4689f8a808c4e6da2062b0dc1)
+        ;
+
+        
+    
+    
+            circle_marker_5364df51015ff81f1e5fa8585d6f3c87.bindTooltip(
+                `<div>
+                     #5 School Tuticorin
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_334a481da24d8915f1f4f66fcc891136 = L.marker(
+                [8.8, 78.15],
+                {
+}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+            var div_icon_3d8ee29f3a93d9064202db1fc6fce287 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#5\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_334a481da24d8915f1f4f66fcc891136.setIcon(div_icon_3d8ee29f3a93d9064202db1fc6fce287);
+            
+    
+            var circle_marker_4c12bd3c798b7849fdb9065d189507d1 = L.circleMarker(
+                [12.83, 79.7],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+        var popup_c8e8e1e1604630bca90679746e360b7d = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_4ccddef3cd0c1ab3df562d75856832ce = $(`<div id="html_4ccddef3cd0c1ab3df562d75856832ce" style="width: 100.0%; height: 100.0%;">             <b>#6 School Kanchipuram</b><br>             <hr style='margin:4px 0'>             🛰 <b>SAR 2023:</b> 0.0%<br>             📅 <b>JRC History:</b> 29.2%<br>             🌊 <b>GFD Events:</b> 0.0%<br>             📊 <b>Master score:</b> 29.6<br>             📡 <b>Connectivity:</b> ⚠ No connectivity<br>             <hr style='margin:4px 0'>             🎯 <b>Risk: HIGH</b>             </div>`)[0];
+                popup_c8e8e1e1604630bca90679746e360b7d.setContent(html_4ccddef3cd0c1ab3df562d75856832ce);
+            
+        
+
+        circle_marker_4c12bd3c798b7849fdb9065d189507d1.bindPopup(popup_c8e8e1e1604630bca90679746e360b7d)
+        ;
+
+        
+    
+    
+            circle_marker_4c12bd3c798b7849fdb9065d189507d1.bindTooltip(
+                `<div>
+                     #6 School Kanchipuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_929dbcd16f1e03119ac11e339e33513f = L.marker(
+                [12.83, 79.7],
+                {
+}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+            var div_icon_ed847b398fea84a29870130d76f03482 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#6\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_929dbcd16f1e03119ac11e339e33513f.setIcon(div_icon_ed847b398fea84a29870130d76f03482);
+            
+    
+            var circle_marker_73ceda759e61102220036725978bcbe8 = L.circleMarker(
+                [10.79, 78.68],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+        var popup_0ff7cc4df7271cdd9e69eadb8739001a = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_f3c578d0e91a79baef7b5eb060ddae96 = $(`<div id="html_f3c578d0e91a79baef7b5eb060ddae96" style="width: 100.0%; height: 100.0%;">             <b>#7 Govt School Tiruchirappalli</b><br>             <hr style='margin:4px 0'>             🛰 <b>SAR 2023:</b> 3.1%<br>             📅 <b>JRC History:</b> 25.3%<br>             🌊 <b>GFD Events:</b> 0.0%<br>             📊 <b>Master score:</b> 28.6<br>             📡 <b>Connectivity:</b> ⚠ No connectivity<br>             <hr style='margin:4px 0'>             🎯 <b>Risk: HIGH</b>             </div>`)[0];
+                popup_0ff7cc4df7271cdd9e69eadb8739001a.setContent(html_f3c578d0e91a79baef7b5eb060ddae96);
+            
+        
+
+        circle_marker_73ceda759e61102220036725978bcbe8.bindPopup(popup_0ff7cc4df7271cdd9e69eadb8739001a)
+        ;
+
+        
+    
+    
+            circle_marker_73ceda759e61102220036725978bcbe8.bindTooltip(
+                `<div>
+                     #7 Govt School Tiruchirappalli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3a5fc92cf8d501e9a961c90fc9387beb = L.marker(
+                [10.79, 78.68],
+                {
+}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+            var div_icon_3f4b31a116466f332f963d100205bfdb = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#7\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_3a5fc92cf8d501e9a961c90fc9387beb.setIcon(div_icon_3f4b31a116466f332f963d100205bfdb);
+            
+    
+            var circle_marker_14cf123f5b53860eaebfa0a07acd654e = L.circleMarker(
+                [8.71, 77.69],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+        var popup_34fff37c41805881656a3d64cc3c2d6c = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_c8c82662cab906a6842829e90e197f38 = $(`<div id="html_c8c82662cab906a6842829e90e197f38" style="width: 100.0%; height: 100.0%;">             <b>#8 Panchayat School Tirunelveli</b><br>             <hr style='margin:4px 0'>             🛰 <b>SAR 2023:</b> 0.0%<br>             📅 <b>JRC History:</b> 19.5%<br>             🌊 <b>GFD Events:</b> 2.0%<br>             📊 <b>Master score:</b> 25.2<br>             📡 <b>Connectivity:</b> ⚠ No connectivity<br>             <hr style='margin:4px 0'>             🎯 <b>Risk: HIGH</b>             </div>`)[0];
+                popup_34fff37c41805881656a3d64cc3c2d6c.setContent(html_c8c82662cab906a6842829e90e197f38);
+            
+        
+
+        circle_marker_14cf123f5b53860eaebfa0a07acd654e.bindPopup(popup_34fff37c41805881656a3d64cc3c2d6c)
+        ;
+
+        
+    
+    
+            circle_marker_14cf123f5b53860eaebfa0a07acd654e.bindTooltip(
+                `<div>
+                     #8 Panchayat School Tirunelveli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0da8a1364095940c7e6651f0f3dd8cfa = L.marker(
+                [8.71, 77.69],
+                {
+}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+            var div_icon_0e9c56e8405b78a73297ac2159ff7a7e = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#8\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_0da8a1364095940c7e6651f0f3dd8cfa.setIcon(div_icon_0e9c56e8405b78a73297ac2159ff7a7e);
+            
+    
+            var circle_marker_f5174fd671a15c13ce11a328a80fa4dd = L.circleMarker(
+                [10.78, 79.13],
+                {"bubblingMouseEvents": true, "color": "#ffaa00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffaa00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+        var popup_518b65504ff1a330f8cd82f41705213f = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_c296dead57cd855e7057cc56a00b28e6 = $(`<div id="html_c296dead57cd855e7057cc56a00b28e6" style="width: 100.0%; height: 100.0%;">             <b>#9 Govt School Thanjavur</b><br>             <hr style='margin:4px 0'>             🛰 <b>SAR 2023:</b> 0.0%<br>             📅 <b>JRC History:</b> 43.5%<br>             🌊 <b>GFD Events:</b> 0.0%<br>             📊 <b>Master score:</b> 21.8<br>             📡 <b>Connectivity:</b> ✅ Connected<br>             <hr style='margin:4px 0'>             🎯 <b>Risk: MEDIUM</b>             </div>`)[0];
+                popup_518b65504ff1a330f8cd82f41705213f.setContent(html_c296dead57cd855e7057cc56a00b28e6);
+            
+        
+
+        circle_marker_f5174fd671a15c13ce11a328a80fa4dd.bindPopup(popup_518b65504ff1a330f8cd82f41705213f)
+        ;
+
+        
+    
+    
+            circle_marker_f5174fd671a15c13ce11a328a80fa4dd.bindTooltip(
+                `<div>
+                     #9 Govt School Thanjavur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_54377f19f550cfcd5e2dcb8b646b21b3 = L.marker(
+                [10.78, 79.13],
+                {
+}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+            var div_icon_69c292e259cb4056c689d321cda8c6a9 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#9\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_54377f19f550cfcd5e2dcb8b646b21b3.setIcon(div_icon_69c292e259cb4056c689d321cda8c6a9);
+            
+    
+            var circle_marker_ecde74f7f0ea2ba1b9393dc05b26a7a6 = L.circleMarker(
+                [12.92, 79.13],
+                {"bubblingMouseEvents": true, "color": "#ffaa00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffaa00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+        var popup_0bb4d3cff14849faec8402d4bbdb3092 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_b8a8d47f849e815be5a3305fbaf89083 = $(`<div id="html_b8a8d47f849e815be5a3305fbaf89083" style="width: 100.0%; height: 100.0%;">             <b>#10 High School Vellore</b><br>             <hr style='margin:4px 0'>             🛰 <b>SAR 2023:</b> 5.8%<br>             📅 <b>JRC History:</b> 32.9%<br>             🌊 <b>GFD Events:</b> 0.0%<br>             📊 <b>Master score:</b> 18.2<br>             📡 <b>Connectivity:</b> ✅ Connected<br>             <hr style='margin:4px 0'>             🎯 <b>Risk: MEDIUM</b>             </div>`)[0];
+                popup_0bb4d3cff14849faec8402d4bbdb3092.setContent(html_b8a8d47f849e815be5a3305fbaf89083);
+            
+        
+
+        circle_marker_ecde74f7f0ea2ba1b9393dc05b26a7a6.bindPopup(popup_0bb4d3cff14849faec8402d4bbdb3092)
+        ;
+
+        
+    
+    
+            circle_marker_ecde74f7f0ea2ba1b9393dc05b26a7a6.bindTooltip(
+                `<div>
+                     #10 High School Vellore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_abbb2bf92c4156280f9100c126c5539c = L.marker(
+                [12.92, 79.13],
+                {
+}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+            var div_icon_12a722818b36f075eb3707f5286eb95f = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#10\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_abbb2bf92c4156280f9100c126c5539c.setIcon(div_icon_12a722818b36f075eb3707f5286eb95f);
+            
+    
+            var circle_marker_84caa5e3fa7de9f741d4f71848aba8fc = L.circleMarker(
+                [11.93, 79.49],
+                {"bubblingMouseEvents": true, "color": "#ffaa00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffaa00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+        var popup_16d7e4f15e742193ed4362a320790f9b = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_84491cc2cace78314a2e95e1368c8e9c = $(`<div id="html_84491cc2cace78314a2e95e1368c8e9c" style="width: 100.0%; height: 100.0%;">             <b>#11 School Villupuram</b><br>             <hr style='margin:4px 0'>             🛰 <b>SAR 2023:</b> 5.8%<br>             📅 <b>JRC History:</b> 2.8%<br>             🌊 <b>GFD Events:</b> 0.0%<br>             📊 <b>Master score:</b> 18.1<br>             📡 <b>Connectivity:</b> ⚠ No connectivity<br>             <hr style='margin:4px 0'>             🎯 <b>Risk: MEDIUM</b>             </div>`)[0];
+                popup_16d7e4f15e742193ed4362a320790f9b.setContent(html_84491cc2cace78314a2e95e1368c8e9c);
+            
+        
+
+        circle_marker_84caa5e3fa7de9f741d4f71848aba8fc.bindPopup(popup_16d7e4f15e742193ed4362a320790f9b)
+        ;
+
+        
+    
+    
+            circle_marker_84caa5e3fa7de9f741d4f71848aba8fc.bindTooltip(
+                `<div>
+                     #11 School Villupuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a21c763b752e2d55188a417f84c2433a = L.marker(
+                [11.93, 79.49],
+                {
+}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+            var div_icon_112e1d73be775dadf9cc18a358310506 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#11\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_a21c763b752e2d55188a417f84c2433a.setIcon(div_icon_112e1d73be775dadf9cc18a358310506);
+            
+    
+            var circle_marker_0ef4ab92e5d9b02cb8b514fab589cab2 = L.circleMarker(
+                [9.93, 78.12],
+                {"bubblingMouseEvents": true, "color": "#2d8a4e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2d8a4e", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+        var popup_a0df247ec9cf7a17985e97c622d86ae8 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_66c8977d54c084c34f14a4c62f87bb63 = $(`<div id="html_66c8977d54c084c34f14a4c62f87bb63" style="width: 100.0%; height: 100.0%;">             <b>#12 Govt School Madurai</b><br>             <hr style='margin:4px 0'>             🛰 <b>SAR 2023:</b> 8.7%<br>             📅 <b>JRC History:</b> 9.8%<br>             🌊 <b>GFD Events:</b> 0.0%<br>             📊 <b>Master score:</b> 7.5<br>             📡 <b>Connectivity:</b> ✅ Connected<br>             <hr style='margin:4px 0'>             🎯 <b>Risk: LOW</b>             </div>`)[0];
+                popup_a0df247ec9cf7a17985e97c622d86ae8.setContent(html_66c8977d54c084c34f14a4c62f87bb63);
+            
+        
+
+        circle_marker_0ef4ab92e5d9b02cb8b514fab589cab2.bindPopup(popup_a0df247ec9cf7a17985e97c622d86ae8)
+        ;
+
+        
+    
+    
+            circle_marker_0ef4ab92e5d9b02cb8b514fab589cab2.bindTooltip(
+                `<div>
+                     #12 Govt School Madurai
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_4290cbc4bcfc07c33f042fea3c1ef7bd = L.marker(
+                [9.93, 78.12],
+                {
+}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+            var div_icon_aa386018036a1d2c1e80867b31c437de = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#12\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_4290cbc4bcfc07c33f042fea3c1ef7bd.setIcon(div_icon_aa386018036a1d2c1e80867b31c437de);
+            
+    
+            var circle_marker_dbab1399a4425f4e7cce1ad9d82ff3de = L.circleMarker(
+                [13.08, 80.27],
+                {"bubblingMouseEvents": true, "color": "#2d8a4e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2d8a4e", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+        var popup_086d1bf80ff1c4a81cee18c4a35f8633 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_0ee71809cfe5926178d310545a158eff = $(`<div id="html_0ee71809cfe5926178d310545a158eff" style="width: 100.0%; height: 100.0%;">             <b>#13 Govt High School Chennai</b><br>             <hr style='margin:4px 0'>             🛰 <b>SAR 2023:</b> 0.0%<br>             📅 <b>JRC History:</b> 11.9%<br>             🌊 <b>GFD Events:</b> 0.0%<br>             📊 <b>Master score:</b> 6.0<br>             📡 <b>Connectivity:</b> ✅ Connected<br>             <hr style='margin:4px 0'>             🎯 <b>Risk: LOW</b>             </div>`)[0];
+                popup_086d1bf80ff1c4a81cee18c4a35f8633.setContent(html_0ee71809cfe5926178d310545a158eff);
+            
+        
+
+        circle_marker_dbab1399a4425f4e7cce1ad9d82ff3de.bindPopup(popup_086d1bf80ff1c4a81cee18c4a35f8633)
+        ;
+
+        
+    
+    
+            circle_marker_dbab1399a4425f4e7cce1ad9d82ff3de.bindTooltip(
+                `<div>
+                     #13 Govt High School Chennai
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_84ca68a0f91f6e791f17cfb0d45ec222 = L.marker(
+                [13.08, 80.27],
+                {
+}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+            var div_icon_9425df69528bb69579228e9988fdf3ce = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#13\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_84ca68a0f91f6e791f17cfb0d45ec222.setIcon(div_icon_9425df69528bb69579228e9988fdf3ce);
+            
+    
+            var circle_marker_7a8af75289783dd33ac2d8c8712c2fc0 = L.circleMarker(
+                [11.01, 76.96],
+                {"bubblingMouseEvents": true, "color": "#2d8a4e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2d8a4e", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+        var popup_e82e04a9781e65de215e51d5bc50d247 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_9dbe5f8429b4f45d6a3be1b441671fe8 = $(`<div id="html_9dbe5f8429b4f45d6a3be1b441671fe8" style="width: 100.0%; height: 100.0%;">             <b>#14 High School Coimbatore</b><br>             <hr style='margin:4px 0'>             🛰 <b>SAR 2023:</b> 0.0%<br>             📅 <b>JRC History:</b> 0.0%<br>             🌊 <b>GFD Events:</b> 0.0%<br>             📊 <b>Master score:</b> 0.0<br>             📡 <b>Connectivity:</b> ✅ Connected<br>             <hr style='margin:4px 0'>             🎯 <b>Risk: LOW</b>             </div>`)[0];
+                popup_e82e04a9781e65de215e51d5bc50d247.setContent(html_9dbe5f8429b4f45d6a3be1b441671fe8);
+            
+        
+
+        circle_marker_7a8af75289783dd33ac2d8c8712c2fc0.bindPopup(popup_e82e04a9781e65de215e51d5bc50d247)
+        ;
+
+        
+    
+    
+            circle_marker_7a8af75289783dd33ac2d8c8712c2fc0.bindTooltip(
+                `<div>
+                     #14 High School Coimbatore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_2515ba75048b60e02950fd09759ac82c = L.marker(
+                [11.01, 76.96],
+                {
+}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+            var div_icon_5ab6cdd3102b7d1670b0e325a80e1183 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#14\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_2515ba75048b60e02950fd09759ac82c.setIcon(div_icon_5ab6cdd3102b7d1670b0e325a80e1183);
+            
+    
+            var circle_marker_0bc7b0ec994dfa91510235062ecf6978 = L.circleMarker(
+                [11.65, 78.16],
+                {"bubblingMouseEvents": true, "color": "#2d8a4e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2d8a4e", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+        var popup_3b666405ddba2a2578dc6cb259285340 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_e68ac72d21c798e0d9348e88e591dd35 = $(`<div id="html_e68ac72d21c798e0d9348e88e591dd35" style="width: 100.0%; height: 100.0%;">             <b>#15 Govt School Salem</b><br>             <hr style='margin:4px 0'>             🛰 <b>SAR 2023:</b> 0.0%<br>             📅 <b>JRC History:</b> 0.0%<br>             🌊 <b>GFD Events:</b> 0.0%<br>             📊 <b>Master score:</b> 0.0<br>             📡 <b>Connectivity:</b> ✅ Connected<br>             <hr style='margin:4px 0'>             🎯 <b>Risk: LOW</b>             </div>`)[0];
+                popup_3b666405ddba2a2578dc6cb259285340.setContent(html_e68ac72d21c798e0d9348e88e591dd35);
+            
+        
+
+        circle_marker_0bc7b0ec994dfa91510235062ecf6978.bindPopup(popup_3b666405ddba2a2578dc6cb259285340)
+        ;
+
+        
+    
+    
+            circle_marker_0bc7b0ec994dfa91510235062ecf6978.bindTooltip(
+                `<div>
+                     #15 Govt School Salem
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3a2c1943e78bfe46f5d098c98b22cca4 = L.marker(
+                [11.65, 78.16],
+                {
+}
+            ).addTo(map_287cc88449efe64286770f83da64f72c);
+        
+    
+            var div_icon_90eeba82ebd5befb2d03d8ffb449a8fa = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#15\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_3a2c1943e78bfe46f5d098c98b22cca4.setIcon(div_icon_90eeba82ebd5befb2d03d8ffb449a8fa);
+            
+</script>
+</html>

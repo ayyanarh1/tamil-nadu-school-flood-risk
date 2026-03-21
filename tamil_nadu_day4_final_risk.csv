@@ -1,0 +1,16 @@
+school_name,connectivity,final_score,final_risk,annual_mean_mm,oct_dec_mean_mm,max_month,rain_norm,updated_score,updated_risk,rank
+School Puducherry Border,connected,98.2,CRITICAL,38.4655,7.679356,Nov 2021,83.419464,96.72195,CRITICAL,1
+Panchayat School Nagapattinam,none,52.0,CRITICAL,43.662544,9.205712,Nov 2023,100.0,56.8,CRITICAL,2
+School Ramanathapuram,none,38.8,HIGH,37.237167,7.8609257,Nov 2023,85.39182,43.459183,HIGH,3
+Govt School Cuddalore,none,34.4,HIGH,39.255302,8.106549,Nov 2021,88.05999,39.766,HIGH,4
+School Tuticorin,connected,34.0,HIGH,33.220608,7.7897177,Nov 2021,84.61831,39.061832,HIGH,5
+School Kanchipuram,none,29.6,HIGH,37.007492,6.1623783,Nov 2021,66.94081,33.33408,HIGH,6
+Govt School Tiruchirappalli,none,28.6,HIGH,31.032562,5.2189827,Nov 2023,56.692875,31.409286,HIGH,7
+Panchayat School Tirunelveli,none,25.2,HIGH,38.833458,7.4053345,Nov 2021,80.44282,30.724281,HIGH,8
+Govt School Thanjavur,connected,21.8,MEDIUM,37.226837,6.292502,Nov 2021,68.354324,26.455433,HIGH,9
+School Villupuram,none,18.1,MEDIUM,37.14021,6.0605474,Nov 2021,65.83463,22.873465,MEDIUM,10
+High School Vellore,connected,18.2,MEDIUM,35.373844,5.252785,Nov 2021,57.060062,22.086006,MEDIUM,11
+Govt High School Chennai,connected,6.0,LOW,39.37737,7.77732,Nov 2021,84.48363,13.848364,MEDIUM,12
+Govt School Madurai,connected,7.5,LOW,34.46055,5.7610936,Nov 2023,62.581722,13.008173,MEDIUM,13
+Govt School Salem,connected,0.0,LOW,37.345093,4.526933,Nov 2021,49.175262,4.9175262,LOW,14
+High School Coimbatore,connected,0.0,LOW,35.582382,4.3792195,Oct 2019,47.570675,4.7570677,LOW,15

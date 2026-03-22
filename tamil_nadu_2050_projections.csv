@@ -1,0 +1,16 @@
+school_name,connectivity,current_score,current_risk,oct_dec_rainfall_mm,score_ssp245,score_ssp585,rain_ssp245,rain_ssp585,risk_ssp245,risk_ssp585,tier_change_245,tier_change_585,current_num,ssp245_num,ssp585_num,latitude,longitude
+School Puducherry Border,connected,96.7,CRITICAL,7.7,100.0,100.0,8.9,10.0,CRITICAL,CRITICAL,False,False,4,4,4,11.93,79.83
+Panchayat School Nagapattinam,none,56.8,CRITICAL,9.2,65.3,73.8,10.6,12.0,CRITICAL,CRITICAL,False,False,4,4,4,10.76,79.84
+School Ramanathapuram,none,43.5,HIGH,7.9,50.0,56.6,9.1,10.3,CRITICAL,CRITICAL,True,True,3,4,4,9.37,78.83
+Govt School Cuddalore,none,39.8,HIGH,8.1,45.8,51.7,9.3,10.5,HIGH,CRITICAL,False,True,3,3,4,11.75,79.75
+School Tuticorin,connected,39.1,HIGH,7.8,45.0,50.8,9.0,10.1,HIGH,CRITICAL,False,True,3,3,4,8.8,78.15
+School Kanchipuram,none,33.3,HIGH,6.2,38.3,43.3,7.1,8.1,HIGH,HIGH,False,False,3,3,3,12.83,79.7
+Govt School Tiruchirappalli,none,31.4,HIGH,5.2,36.1,40.8,6.0,6.8,HIGH,HIGH,False,False,3,3,3,10.79,78.68
+Panchayat School Tirunelveli,none,30.7,HIGH,7.4,35.3,39.9,8.5,9.6,HIGH,HIGH,False,False,3,3,3,8.71,77.69
+Govt School Thanjavur,connected,26.5,HIGH,6.3,30.5,34.4,7.2,8.2,HIGH,HIGH,False,False,3,3,3,10.78,79.13
+High School Vellore,connected,22.1,MEDIUM,5.3,25.4,28.7,6.1,6.9,HIGH,HIGH,True,True,2,3,3,12.92,79.13
+School Villupuram,none,22.9,MEDIUM,6.1,26.3,29.8,7.0,7.9,HIGH,HIGH,True,True,2,3,3,11.93,79.49
+Govt School Madurai,connected,13.0,MEDIUM,5.8,15.0,16.9,6.7,7.5,MEDIUM,MEDIUM,False,False,2,2,2,9.93,78.12
+Govt High School Chennai,connected,13.8,MEDIUM,7.8,15.9,17.9,9.0,10.1,MEDIUM,MEDIUM,False,False,2,2,2,13.08,80.27
+High School Coimbatore,connected,4.8,LOW,4.4,5.5,6.2,5.1,5.7,LOW,LOW,False,False,1,1,1,11.01,76.96
+Govt School Salem,connected,4.9,LOW,4.5,5.6,6.4,5.2,5.9,LOW,LOW,False,False,1,1,1,11.65,78.16

@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_7cd27a6d178bbee325ba9989c83b94d2 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position:fixed;bottom:30px;left:30px;
+     background:white;padding:14px;border-radius:10px;
+     border:1px solid #ccc;font-size:12px;z-index:1000;
+     box-shadow:2px 2px 6px rgba(0,0,0,0.15)">
+     <b>🏫 School Flood Risk 2050</b><br>
+     <i>Toggle scenarios top-right</i><br><br>
+     <span style='color:#cc0000;font-size:16px'>●</span> Critical<br>
+     <span style='color:#ff6600;font-size:16px'>●</span> High<br>
+     <span style='color:#ffaa00;font-size:16px'>●</span> Medium<br>
+     <span style='color:#2d8a4e;font-size:16px'>●</span> Low<br><br>
+     <i>Size = risk magnitude</i>
+</div>
+    
+            <div class="folium-map" id="map_7cd27a6d178bbee325ba9989c83b94d2" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_7cd27a6d178bbee325ba9989c83b94d2 = L.map(
+                "map_7cd27a6d178bbee325ba9989c83b94d2",
+                {
+                    center: [10.5, 78.5],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_92cb90c2e723f2b3fc56d1f12642626d = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_92cb90c2e723f2b3fc56d1f12642626d.addTo(map_7cd27a6d178bbee325ba9989c83b94d2);
+        
+    
+            var feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_6864dd8b78ecf07e9018a3656aded3db = L.circleMarker(
+                [11.93, 79.83],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841);
+        
+    
+        var popup_fe9a4fac6d157aeebb6d2062d39c46e6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_da8ad90e28f1ffcfacb3b75a9ca7e201 = $(`<div id="html_da8ad90e28f1ffcfacb3b75a9ca7e201" style="width: 100.0%; height: 100.0%;"><b>School Puducherry Border</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>📊 Score: 96.7<br>🎯 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_fe9a4fac6d157aeebb6d2062d39c46e6.setContent(html_da8ad90e28f1ffcfacb3b75a9ca7e201);
+            
+        
+
+        circle_marker_6864dd8b78ecf07e9018a3656aded3db.bindPopup(popup_fe9a4fac6d157aeebb6d2062d39c46e6)
+        ;
+
+        
+    
+    
+            circle_marker_6864dd8b78ecf07e9018a3656aded3db.bindTooltip(
+                `<div>
+                     School Puducherry Border
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7079ddb8cf4c1dd98349ad8164048384 = L.circleMarker(
+                [10.76, 79.84],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841);
+        
+    
+        var popup_300d84e4ad9e4f050bb9f55cfa2f778e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d064b804704f42682c2f4c94564fc173 = $(`<div id="html_d064b804704f42682c2f4c94564fc173" style="width: 100.0%; height: 100.0%;"><b>Panchayat School Nagapattinam</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>📊 Score: 56.8<br>🎯 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_300d84e4ad9e4f050bb9f55cfa2f778e.setContent(html_d064b804704f42682c2f4c94564fc173);
+            
+        
+
+        circle_marker_7079ddb8cf4c1dd98349ad8164048384.bindPopup(popup_300d84e4ad9e4f050bb9f55cfa2f778e)
+        ;
+
+        
+    
+    
+            circle_marker_7079ddb8cf4c1dd98349ad8164048384.bindTooltip(
+                `<div>
+                     Panchayat School Nagapattinam
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_99b40fee58be1b74ce07badd540c3937 = L.circleMarker(
+                [9.37, 78.83],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841);
+        
+    
+        var popup_372fee7b33dae79f172fb6fd87bc9db1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_320324fc51780a245812bbcd1a7e93cd = $(`<div id="html_320324fc51780a245812bbcd1a7e93cd" style="width: 100.0%; height: 100.0%;"><b>School Ramanathapuram</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>📊 Score: 43.5<br>🎯 Risk: <b>HIGH</b></div>`)[0];
+                popup_372fee7b33dae79f172fb6fd87bc9db1.setContent(html_320324fc51780a245812bbcd1a7e93cd);
+            
+        
+
+        circle_marker_99b40fee58be1b74ce07badd540c3937.bindPopup(popup_372fee7b33dae79f172fb6fd87bc9db1)
+        ;
+
+        
+    
+    
+            circle_marker_99b40fee58be1b74ce07badd540c3937.bindTooltip(
+                `<div>
+                     School Ramanathapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e7c19c752525be5205d5e79af9876514 = L.circleMarker(
+                [11.75, 79.75],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841);
+        
+    
+        var popup_d42ed975c18a21ca36db9d516e9cca66 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6ac8097ef9955af6f3b51c6606781117 = $(`<div id="html_6ac8097ef9955af6f3b51c6606781117" style="width: 100.0%; height: 100.0%;"><b>Govt School Cuddalore</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>📊 Score: 39.8<br>🎯 Risk: <b>HIGH</b></div>`)[0];
+                popup_d42ed975c18a21ca36db9d516e9cca66.setContent(html_6ac8097ef9955af6f3b51c6606781117);
+            
+        
+
+        circle_marker_e7c19c752525be5205d5e79af9876514.bindPopup(popup_d42ed975c18a21ca36db9d516e9cca66)
+        ;
+
+        
+    
+    
+            circle_marker_e7c19c752525be5205d5e79af9876514.bindTooltip(
+                `<div>
+                     Govt School Cuddalore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_728fb627ed464921c7435eae0ea9511c = L.circleMarker(
+                [8.8, 78.15],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841);
+        
+    
+        var popup_8961d124f169d460d54b6fb6febe7d1e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_455e948c29d7108581dc3989ad14632a = $(`<div id="html_455e948c29d7108581dc3989ad14632a" style="width: 100.0%; height: 100.0%;"><b>School Tuticorin</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>📊 Score: 39.1<br>🎯 Risk: <b>HIGH</b></div>`)[0];
+                popup_8961d124f169d460d54b6fb6febe7d1e.setContent(html_455e948c29d7108581dc3989ad14632a);
+            
+        
+
+        circle_marker_728fb627ed464921c7435eae0ea9511c.bindPopup(popup_8961d124f169d460d54b6fb6febe7d1e)
+        ;
+
+        
+    
+    
+            circle_marker_728fb627ed464921c7435eae0ea9511c.bindTooltip(
+                `<div>
+                     School Tuticorin
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4e886fc57f173943de33fb26b91c6e18 = L.circleMarker(
+                [12.83, 79.7],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841);
+        
+    
+        var popup_e581622208a918790824ca2bc3e780ae = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_22b57c0f5ec781fe7963065c69430fe2 = $(`<div id="html_22b57c0f5ec781fe7963065c69430fe2" style="width: 100.0%; height: 100.0%;"><b>School Kanchipuram</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>📊 Score: 33.3<br>🎯 Risk: <b>HIGH</b></div>`)[0];
+                popup_e581622208a918790824ca2bc3e780ae.setContent(html_22b57c0f5ec781fe7963065c69430fe2);
+            
+        
+
+        circle_marker_4e886fc57f173943de33fb26b91c6e18.bindPopup(popup_e581622208a918790824ca2bc3e780ae)
+        ;
+
+        
+    
+    
+            circle_marker_4e886fc57f173943de33fb26b91c6e18.bindTooltip(
+                `<div>
+                     School Kanchipuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5048fb6508fdb22fb551118926877430 = L.circleMarker(
+                [10.79, 78.68],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841);
+        
+    
+        var popup_134abbb73524bdcfcd76a58a3fb0c4db = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_48d493e6f730ce3104c4297706a1c98d = $(`<div id="html_48d493e6f730ce3104c4297706a1c98d" style="width: 100.0%; height: 100.0%;"><b>Govt School Tiruchirappalli</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>📊 Score: 31.4<br>🎯 Risk: <b>HIGH</b></div>`)[0];
+                popup_134abbb73524bdcfcd76a58a3fb0c4db.setContent(html_48d493e6f730ce3104c4297706a1c98d);
+            
+        
+
+        circle_marker_5048fb6508fdb22fb551118926877430.bindPopup(popup_134abbb73524bdcfcd76a58a3fb0c4db)
+        ;
+
+        
+    
+    
+            circle_marker_5048fb6508fdb22fb551118926877430.bindTooltip(
+                `<div>
+                     Govt School Tiruchirappalli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_61fe606e053857059e18eee656b6d868 = L.circleMarker(
+                [8.71, 77.69],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841);
+        
+    
+        var popup_3a96dd2e18ad69f3527f0fbd29726e72 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c8232df744b8e90a2a470beb87b71e6b = $(`<div id="html_c8232df744b8e90a2a470beb87b71e6b" style="width: 100.0%; height: 100.0%;"><b>Panchayat School Tirunelveli</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>📊 Score: 30.7<br>🎯 Risk: <b>HIGH</b></div>`)[0];
+                popup_3a96dd2e18ad69f3527f0fbd29726e72.setContent(html_c8232df744b8e90a2a470beb87b71e6b);
+            
+        
+
+        circle_marker_61fe606e053857059e18eee656b6d868.bindPopup(popup_3a96dd2e18ad69f3527f0fbd29726e72)
+        ;
+
+        
+    
+    
+            circle_marker_61fe606e053857059e18eee656b6d868.bindTooltip(
+                `<div>
+                     Panchayat School Tirunelveli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_63f13a029fedcf4d3f9f22d192e31e5b = L.circleMarker(
+                [10.78, 79.13],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841);
+        
+    
+        var popup_6bf7fad6f22cdb0f360b4e8daf18ac16 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_35e1ad841d8ab924f0c27d74371677c8 = $(`<div id="html_35e1ad841d8ab924f0c27d74371677c8" style="width: 100.0%; height: 100.0%;"><b>Govt School Thanjavur</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>📊 Score: 26.5<br>🎯 Risk: <b>HIGH</b></div>`)[0];
+                popup_6bf7fad6f22cdb0f360b4e8daf18ac16.setContent(html_35e1ad841d8ab924f0c27d74371677c8);
+            
+        
+
+        circle_marker_63f13a029fedcf4d3f9f22d192e31e5b.bindPopup(popup_6bf7fad6f22cdb0f360b4e8daf18ac16)
+        ;
+
+        
+    
+    
+            circle_marker_63f13a029fedcf4d3f9f22d192e31e5b.bindTooltip(
+                `<div>
+                     Govt School Thanjavur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6f71b188025a8587f54d9d0894c84ae0 = L.circleMarker(
+                [12.92, 79.13],
+                {"bubblingMouseEvents": true, "color": "#ffaa00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffaa00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841);
+        
+    
+        var popup_4b4a8c253607696f839d812331938006 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b1bf710dc0281d8a1adf1c3fa3616a28 = $(`<div id="html_b1bf710dc0281d8a1adf1c3fa3616a28" style="width: 100.0%; height: 100.0%;"><b>High School Vellore</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>📊 Score: 22.1<br>🎯 Risk: <b>MEDIUM</b></div>`)[0];
+                popup_4b4a8c253607696f839d812331938006.setContent(html_b1bf710dc0281d8a1adf1c3fa3616a28);
+            
+        
+
+        circle_marker_6f71b188025a8587f54d9d0894c84ae0.bindPopup(popup_4b4a8c253607696f839d812331938006)
+        ;
+
+        
+    
+    
+            circle_marker_6f71b188025a8587f54d9d0894c84ae0.bindTooltip(
+                `<div>
+                     High School Vellore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0458693723dcc8115c270989593292c6 = L.circleMarker(
+                [11.93, 79.49],
+                {"bubblingMouseEvents": true, "color": "#ffaa00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffaa00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841);
+        
+    
+        var popup_760d5e7a11e8b6f5a6581f4a3adc8b7b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d30eefab75c472cf6c08cbd6db13925a = $(`<div id="html_d30eefab75c472cf6c08cbd6db13925a" style="width: 100.0%; height: 100.0%;"><b>School Villupuram</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>📊 Score: 22.9<br>🎯 Risk: <b>MEDIUM</b></div>`)[0];
+                popup_760d5e7a11e8b6f5a6581f4a3adc8b7b.setContent(html_d30eefab75c472cf6c08cbd6db13925a);
+            
+        
+
+        circle_marker_0458693723dcc8115c270989593292c6.bindPopup(popup_760d5e7a11e8b6f5a6581f4a3adc8b7b)
+        ;
+
+        
+    
+    
+            circle_marker_0458693723dcc8115c270989593292c6.bindTooltip(
+                `<div>
+                     School Villupuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2995403e0f71fbb97f546077f6991001 = L.circleMarker(
+                [9.93, 78.12],
+                {"bubblingMouseEvents": true, "color": "#ffaa00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffaa00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841);
+        
+    
+        var popup_4cf8b3a8f30b95d1369f6fd548f85329 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e169102ca9228f20ae88b84891ba748b = $(`<div id="html_e169102ca9228f20ae88b84891ba748b" style="width: 100.0%; height: 100.0%;"><b>Govt School Madurai</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>📊 Score: 13.0<br>🎯 Risk: <b>MEDIUM</b></div>`)[0];
+                popup_4cf8b3a8f30b95d1369f6fd548f85329.setContent(html_e169102ca9228f20ae88b84891ba748b);
+            
+        
+
+        circle_marker_2995403e0f71fbb97f546077f6991001.bindPopup(popup_4cf8b3a8f30b95d1369f6fd548f85329)
+        ;
+
+        
+    
+    
+            circle_marker_2995403e0f71fbb97f546077f6991001.bindTooltip(
+                `<div>
+                     Govt School Madurai
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_839501a1b8c8adb1081378633b3d95bc = L.circleMarker(
+                [13.08, 80.27],
+                {"bubblingMouseEvents": true, "color": "#ffaa00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffaa00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841);
+        
+    
+        var popup_fd5c28a4b8147de1f16e3c35aca221fc = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_118c3344280c68bfd45b7bdee419d278 = $(`<div id="html_118c3344280c68bfd45b7bdee419d278" style="width: 100.0%; height: 100.0%;"><b>Govt High School Chennai</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>📊 Score: 13.8<br>🎯 Risk: <b>MEDIUM</b></div>`)[0];
+                popup_fd5c28a4b8147de1f16e3c35aca221fc.setContent(html_118c3344280c68bfd45b7bdee419d278);
+            
+        
+
+        circle_marker_839501a1b8c8adb1081378633b3d95bc.bindPopup(popup_fd5c28a4b8147de1f16e3c35aca221fc)
+        ;
+
+        
+    
+    
+            circle_marker_839501a1b8c8adb1081378633b3d95bc.bindTooltip(
+                `<div>
+                     Govt High School Chennai
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7fb29ad8760cea5d0b8ef71d84f29cb9 = L.circleMarker(
+                [11.01, 76.96],
+                {"bubblingMouseEvents": true, "color": "#2d8a4e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2d8a4e", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841);
+        
+    
+        var popup_8730da22ab278f7b7e98bf11e3a41574 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5fe3cf9b4a747e2e38bb610550f95f94 = $(`<div id="html_5fe3cf9b4a747e2e38bb610550f95f94" style="width: 100.0%; height: 100.0%;"><b>High School Coimbatore</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>📊 Score: 4.8<br>🎯 Risk: <b>LOW</b></div>`)[0];
+                popup_8730da22ab278f7b7e98bf11e3a41574.setContent(html_5fe3cf9b4a747e2e38bb610550f95f94);
+            
+        
+
+        circle_marker_7fb29ad8760cea5d0b8ef71d84f29cb9.bindPopup(popup_8730da22ab278f7b7e98bf11e3a41574)
+        ;
+
+        
+    
+    
+            circle_marker_7fb29ad8760cea5d0b8ef71d84f29cb9.bindTooltip(
+                `<div>
+                     High School Coimbatore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c24e8b1ad5821d1838f508fa46e95475 = L.circleMarker(
+                [11.65, 78.16],
+                {"bubblingMouseEvents": true, "color": "#2d8a4e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2d8a4e", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841);
+        
+    
+        var popup_1d63c4388d3988467b2cda6156415b33 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_627a6c0a360be56060703498eee4b68c = $(`<div id="html_627a6c0a360be56060703498eee4b68c" style="width: 100.0%; height: 100.0%;"><b>Govt School Salem</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>📊 Score: 4.9<br>🎯 Risk: <b>LOW</b></div>`)[0];
+                popup_1d63c4388d3988467b2cda6156415b33.setContent(html_627a6c0a360be56060703498eee4b68c);
+            
+        
+
+        circle_marker_c24e8b1ad5821d1838f508fa46e95475.bindPopup(popup_1d63c4388d3988467b2cda6156415b33)
+        ;
+
+        
+    
+    
+            circle_marker_c24e8b1ad5821d1838f508fa46e95475.bindTooltip(
+                `<div>
+                     Govt School Salem
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841.addTo(map_7cd27a6d178bbee325ba9989c83b94d2);
+        
+    
+            var feature_group_b20b3e442e816f9633c0c825788a230c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_bde4c89f8539b117bc709ad582c18dd4 = L.circleMarker(
+                [11.93, 79.83],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b20b3e442e816f9633c0c825788a230c);
+        
+    
+        var popup_32a702905edcd96d4bf8ffa20bf32f6d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f02934ab9a582fef34e6d497dae1aebe = $(`<div id="html_f02934ab9a582fef34e6d497dae1aebe" style="width: 100.0%; height: 100.0%;"><b>School Puducherry Border</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>🌧 Rainfall +15% by 2050<br>📊 Score: 100.0<br>🎯 2050 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_32a702905edcd96d4bf8ffa20bf32f6d.setContent(html_f02934ab9a582fef34e6d497dae1aebe);
+            
+        
+
+        circle_marker_bde4c89f8539b117bc709ad582c18dd4.bindPopup(popup_32a702905edcd96d4bf8ffa20bf32f6d)
+        ;
+
+        
+    
+    
+            circle_marker_bde4c89f8539b117bc709ad582c18dd4.bindTooltip(
+                `<div>
+                     School Puducherry Border
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3592ab048c8645b2d5271231d06f0b2f = L.circleMarker(
+                [10.76, 79.84],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b20b3e442e816f9633c0c825788a230c);
+        
+    
+        var popup_e2cc5a5602707c469fc58302542c9b73 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bd7fa779f9536339d62a521f246d3b6f = $(`<div id="html_bd7fa779f9536339d62a521f246d3b6f" style="width: 100.0%; height: 100.0%;"><b>Panchayat School Nagapattinam</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>🌧 Rainfall +15% by 2050<br>📊 Score: 65.3<br>🎯 2050 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_e2cc5a5602707c469fc58302542c9b73.setContent(html_bd7fa779f9536339d62a521f246d3b6f);
+            
+        
+
+        circle_marker_3592ab048c8645b2d5271231d06f0b2f.bindPopup(popup_e2cc5a5602707c469fc58302542c9b73)
+        ;
+
+        
+    
+    
+            circle_marker_3592ab048c8645b2d5271231d06f0b2f.bindTooltip(
+                `<div>
+                     Panchayat School Nagapattinam
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c7cc54d63630e1d70d5f89f985676051 = L.circleMarker(
+                [9.37, 78.83],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b20b3e442e816f9633c0c825788a230c);
+        
+    
+        var popup_9c9fb66206eed2c90cc9b5145fb7a62d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_89effe0b98b671f977f3708cf1035a60 = $(`<div id="html_89effe0b98b671f977f3708cf1035a60" style="width: 100.0%; height: 100.0%;"><b>School Ramanathapuram</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>🌧 Rainfall +15% by 2050<br>📊 Score: 50.0<br>🎯 2050 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_9c9fb66206eed2c90cc9b5145fb7a62d.setContent(html_89effe0b98b671f977f3708cf1035a60);
+            
+        
+
+        circle_marker_c7cc54d63630e1d70d5f89f985676051.bindPopup(popup_9c9fb66206eed2c90cc9b5145fb7a62d)
+        ;
+
+        
+    
+    
+            circle_marker_c7cc54d63630e1d70d5f89f985676051.bindTooltip(
+                `<div>
+                     School Ramanathapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a62787c3d8593c18ba2306f210ed4434 = L.circleMarker(
+                [11.75, 79.75],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b20b3e442e816f9633c0c825788a230c);
+        
+    
+        var popup_219f880b47e7ddfdd8fec74c94419e1e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fc51020301e097cf31146a725fb0690d = $(`<div id="html_fc51020301e097cf31146a725fb0690d" style="width: 100.0%; height: 100.0%;"><b>Govt School Cuddalore</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>🌧 Rainfall +15% by 2050<br>📊 Score: 45.8<br>🎯 2050 Risk: <b>HIGH</b></div>`)[0];
+                popup_219f880b47e7ddfdd8fec74c94419e1e.setContent(html_fc51020301e097cf31146a725fb0690d);
+            
+        
+
+        circle_marker_a62787c3d8593c18ba2306f210ed4434.bindPopup(popup_219f880b47e7ddfdd8fec74c94419e1e)
+        ;
+
+        
+    
+    
+            circle_marker_a62787c3d8593c18ba2306f210ed4434.bindTooltip(
+                `<div>
+                     Govt School Cuddalore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cbefbe2fe9d8592f3efddc23e451b78c = L.circleMarker(
+                [8.8, 78.15],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b20b3e442e816f9633c0c825788a230c);
+        
+    
+        var popup_3c1a1751e0ec5ed6e7fabeb760118bb8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_70cca3bad24c4086bbf3759ecdc8344f = $(`<div id="html_70cca3bad24c4086bbf3759ecdc8344f" style="width: 100.0%; height: 100.0%;"><b>School Tuticorin</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>🌧 Rainfall +15% by 2050<br>📊 Score: 45.0<br>🎯 2050 Risk: <b>HIGH</b></div>`)[0];
+                popup_3c1a1751e0ec5ed6e7fabeb760118bb8.setContent(html_70cca3bad24c4086bbf3759ecdc8344f);
+            
+        
+
+        circle_marker_cbefbe2fe9d8592f3efddc23e451b78c.bindPopup(popup_3c1a1751e0ec5ed6e7fabeb760118bb8)
+        ;
+
+        
+    
+    
+            circle_marker_cbefbe2fe9d8592f3efddc23e451b78c.bindTooltip(
+                `<div>
+                     School Tuticorin
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f45f9b9ebc01b0250a6d343d8c7e1b0c = L.circleMarker(
+                [12.83, 79.7],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b20b3e442e816f9633c0c825788a230c);
+        
+    
+        var popup_41b52500ec9aa2b7dd98153b0382e93f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bfb1670107b258da83dd089faa09f484 = $(`<div id="html_bfb1670107b258da83dd089faa09f484" style="width: 100.0%; height: 100.0%;"><b>School Kanchipuram</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>🌧 Rainfall +15% by 2050<br>📊 Score: 38.3<br>🎯 2050 Risk: <b>HIGH</b></div>`)[0];
+                popup_41b52500ec9aa2b7dd98153b0382e93f.setContent(html_bfb1670107b258da83dd089faa09f484);
+            
+        
+
+        circle_marker_f45f9b9ebc01b0250a6d343d8c7e1b0c.bindPopup(popup_41b52500ec9aa2b7dd98153b0382e93f)
+        ;
+
+        
+    
+    
+            circle_marker_f45f9b9ebc01b0250a6d343d8c7e1b0c.bindTooltip(
+                `<div>
+                     School Kanchipuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_079230f4deb771d645a12a38aa9a4e57 = L.circleMarker(
+                [10.79, 78.68],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b20b3e442e816f9633c0c825788a230c);
+        
+    
+        var popup_cb2ad017919d4f8b19c2dd8332422d53 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1d9b8e39f8ef4622d335a26007788ed6 = $(`<div id="html_1d9b8e39f8ef4622d335a26007788ed6" style="width: 100.0%; height: 100.0%;"><b>Govt School Tiruchirappalli</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>🌧 Rainfall +15% by 2050<br>📊 Score: 36.1<br>🎯 2050 Risk: <b>HIGH</b></div>`)[0];
+                popup_cb2ad017919d4f8b19c2dd8332422d53.setContent(html_1d9b8e39f8ef4622d335a26007788ed6);
+            
+        
+
+        circle_marker_079230f4deb771d645a12a38aa9a4e57.bindPopup(popup_cb2ad017919d4f8b19c2dd8332422d53)
+        ;
+
+        
+    
+    
+            circle_marker_079230f4deb771d645a12a38aa9a4e57.bindTooltip(
+                `<div>
+                     Govt School Tiruchirappalli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_315ea086ca53b4d12407b824494ca5e5 = L.circleMarker(
+                [8.71, 77.69],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b20b3e442e816f9633c0c825788a230c);
+        
+    
+        var popup_4f70bcf9525ad97475fd50209e712c4a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6dd173198748cec9ed7c61f9576669cc = $(`<div id="html_6dd173198748cec9ed7c61f9576669cc" style="width: 100.0%; height: 100.0%;"><b>Panchayat School Tirunelveli</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>🌧 Rainfall +15% by 2050<br>📊 Score: 35.3<br>🎯 2050 Risk: <b>HIGH</b></div>`)[0];
+                popup_4f70bcf9525ad97475fd50209e712c4a.setContent(html_6dd173198748cec9ed7c61f9576669cc);
+            
+        
+
+        circle_marker_315ea086ca53b4d12407b824494ca5e5.bindPopup(popup_4f70bcf9525ad97475fd50209e712c4a)
+        ;
+
+        
+    
+    
+            circle_marker_315ea086ca53b4d12407b824494ca5e5.bindTooltip(
+                `<div>
+                     Panchayat School Tirunelveli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a266cdbb677bb7b59f575b5f3eef4876 = L.circleMarker(
+                [10.78, 79.13],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b20b3e442e816f9633c0c825788a230c);
+        
+    
+        var popup_ed66e772ec56d8528763cabe8005ed88 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_108f86a862f6b62d612da8f5a7033e77 = $(`<div id="html_108f86a862f6b62d612da8f5a7033e77" style="width: 100.0%; height: 100.0%;"><b>Govt School Thanjavur</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>🌧 Rainfall +15% by 2050<br>📊 Score: 30.5<br>🎯 2050 Risk: <b>HIGH</b></div>`)[0];
+                popup_ed66e772ec56d8528763cabe8005ed88.setContent(html_108f86a862f6b62d612da8f5a7033e77);
+            
+        
+
+        circle_marker_a266cdbb677bb7b59f575b5f3eef4876.bindPopup(popup_ed66e772ec56d8528763cabe8005ed88)
+        ;
+
+        
+    
+    
+            circle_marker_a266cdbb677bb7b59f575b5f3eef4876.bindTooltip(
+                `<div>
+                     Govt School Thanjavur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_14f695fd85b7be96f4a74cde6ebc8067 = L.circleMarker(
+                [12.92, 79.13],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b20b3e442e816f9633c0c825788a230c);
+        
+    
+        var popup_20665fe2776aae40928d2f9af21485be = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0925879bd75d7022b5459e1062fcfe62 = $(`<div id="html_0925879bd75d7022b5459e1062fcfe62" style="width: 100.0%; height: 100.0%;"><b>High School Vellore</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>🌧 Rainfall +15% by 2050<br>📊 Score: 25.4<br>🎯 2050 Risk: <b>HIGH</b></div>`)[0];
+                popup_20665fe2776aae40928d2f9af21485be.setContent(html_0925879bd75d7022b5459e1062fcfe62);
+            
+        
+
+        circle_marker_14f695fd85b7be96f4a74cde6ebc8067.bindPopup(popup_20665fe2776aae40928d2f9af21485be)
+        ;
+
+        
+    
+    
+            circle_marker_14f695fd85b7be96f4a74cde6ebc8067.bindTooltip(
+                `<div>
+                     High School Vellore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7c5956f3dd7648beef38673720addfdb = L.circleMarker(
+                [11.93, 79.49],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b20b3e442e816f9633c0c825788a230c);
+        
+    
+        var popup_a49e889038e3d926b46712c33dcd4b8d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b26f1d504bdb44aa534ca3df23a5a7fb = $(`<div id="html_b26f1d504bdb44aa534ca3df23a5a7fb" style="width: 100.0%; height: 100.0%;"><b>School Villupuram</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>🌧 Rainfall +15% by 2050<br>📊 Score: 26.3<br>🎯 2050 Risk: <b>HIGH</b></div>`)[0];
+                popup_a49e889038e3d926b46712c33dcd4b8d.setContent(html_b26f1d504bdb44aa534ca3df23a5a7fb);
+            
+        
+
+        circle_marker_7c5956f3dd7648beef38673720addfdb.bindPopup(popup_a49e889038e3d926b46712c33dcd4b8d)
+        ;
+
+        
+    
+    
+            circle_marker_7c5956f3dd7648beef38673720addfdb.bindTooltip(
+                `<div>
+                     School Villupuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6458a17ffdf74dc3cc53867910d8a20b = L.circleMarker(
+                [9.93, 78.12],
+                {"bubblingMouseEvents": true, "color": "#ffaa00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffaa00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b20b3e442e816f9633c0c825788a230c);
+        
+    
+        var popup_e95ab920f3f1ce4f171a085cca1a8c58 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_336463ead59aed9d82f45dcd408039f5 = $(`<div id="html_336463ead59aed9d82f45dcd408039f5" style="width: 100.0%; height: 100.0%;"><b>Govt School Madurai</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>🌧 Rainfall +15% by 2050<br>📊 Score: 15.0<br>🎯 2050 Risk: <b>MEDIUM</b></div>`)[0];
+                popup_e95ab920f3f1ce4f171a085cca1a8c58.setContent(html_336463ead59aed9d82f45dcd408039f5);
+            
+        
+
+        circle_marker_6458a17ffdf74dc3cc53867910d8a20b.bindPopup(popup_e95ab920f3f1ce4f171a085cca1a8c58)
+        ;
+
+        
+    
+    
+            circle_marker_6458a17ffdf74dc3cc53867910d8a20b.bindTooltip(
+                `<div>
+                     Govt School Madurai
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f118e6b686f4b50a33d42c0270cadc12 = L.circleMarker(
+                [13.08, 80.27],
+                {"bubblingMouseEvents": true, "color": "#ffaa00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffaa00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b20b3e442e816f9633c0c825788a230c);
+        
+    
+        var popup_e751af2675c3df4a99950f858fa5eeb0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_43f9418982e80b72becd3da79ef3bb6a = $(`<div id="html_43f9418982e80b72becd3da79ef3bb6a" style="width: 100.0%; height: 100.0%;"><b>Govt High School Chennai</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>🌧 Rainfall +15% by 2050<br>📊 Score: 15.9<br>🎯 2050 Risk: <b>MEDIUM</b></div>`)[0];
+                popup_e751af2675c3df4a99950f858fa5eeb0.setContent(html_43f9418982e80b72becd3da79ef3bb6a);
+            
+        
+
+        circle_marker_f118e6b686f4b50a33d42c0270cadc12.bindPopup(popup_e751af2675c3df4a99950f858fa5eeb0)
+        ;
+
+        
+    
+    
+            circle_marker_f118e6b686f4b50a33d42c0270cadc12.bindTooltip(
+                `<div>
+                     Govt High School Chennai
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7912c2b58be32d5a7a3991abe3d347e6 = L.circleMarker(
+                [11.01, 76.96],
+                {"bubblingMouseEvents": true, "color": "#2d8a4e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2d8a4e", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b20b3e442e816f9633c0c825788a230c);
+        
+    
+        var popup_5090a1141feb6067c7b0a35e66de04bd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f94eb0b466bfbfb5830df672549e0de0 = $(`<div id="html_f94eb0b466bfbfb5830df672549e0de0" style="width: 100.0%; height: 100.0%;"><b>High School Coimbatore</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>🌧 Rainfall +15% by 2050<br>📊 Score: 5.5<br>🎯 2050 Risk: <b>LOW</b></div>`)[0];
+                popup_5090a1141feb6067c7b0a35e66de04bd.setContent(html_f94eb0b466bfbfb5830df672549e0de0);
+            
+        
+
+        circle_marker_7912c2b58be32d5a7a3991abe3d347e6.bindPopup(popup_5090a1141feb6067c7b0a35e66de04bd)
+        ;
+
+        
+    
+    
+            circle_marker_7912c2b58be32d5a7a3991abe3d347e6.bindTooltip(
+                `<div>
+                     High School Coimbatore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_610d590b503277b1d14cc42fb08bd0a4 = L.circleMarker(
+                [11.65, 78.16],
+                {"bubblingMouseEvents": true, "color": "#2d8a4e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2d8a4e", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b20b3e442e816f9633c0c825788a230c);
+        
+    
+        var popup_8f727216492f7413075d76935bb49518 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_16f487e8d080fcd67e6aca6134ec3df8 = $(`<div id="html_16f487e8d080fcd67e6aca6134ec3df8" style="width: 100.0%; height: 100.0%;"><b>Govt School Salem</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>🌧 Rainfall +15% by 2050<br>📊 Score: 5.6<br>🎯 2050 Risk: <b>LOW</b></div>`)[0];
+                popup_8f727216492f7413075d76935bb49518.setContent(html_16f487e8d080fcd67e6aca6134ec3df8);
+            
+        
+
+        circle_marker_610d590b503277b1d14cc42fb08bd0a4.bindPopup(popup_8f727216492f7413075d76935bb49518)
+        ;
+
+        
+    
+    
+            circle_marker_610d590b503277b1d14cc42fb08bd0a4.bindTooltip(
+                `<div>
+                     Govt School Salem
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var feature_group_54b2414daca8ee9882f70117e11f490e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_bd0738fa09ea5048b39a873fa84b05c4 = L.circleMarker(
+                [11.93, 79.83],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_54b2414daca8ee9882f70117e11f490e);
+        
+    
+        var popup_bfea00cf6e502c3d67bb628faec7237b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c9ba25634a12ec70d04688d4124dfe3e = $(`<div id="html_c9ba25634a12ec70d04688d4124dfe3e" style="width: 100.0%; height: 100.0%;"><b>School Puducherry Border</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>🌧 Rainfall +30% by 2050<br>📊 Score: 100.0<br>🎯 2050 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_bfea00cf6e502c3d67bb628faec7237b.setContent(html_c9ba25634a12ec70d04688d4124dfe3e);
+            
+        
+
+        circle_marker_bd0738fa09ea5048b39a873fa84b05c4.bindPopup(popup_bfea00cf6e502c3d67bb628faec7237b)
+        ;
+
+        
+    
+    
+            circle_marker_bd0738fa09ea5048b39a873fa84b05c4.bindTooltip(
+                `<div>
+                     School Puducherry Border
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1a10b4fa869ae4309a8db4339797c590 = L.circleMarker(
+                [10.76, 79.84],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_54b2414daca8ee9882f70117e11f490e);
+        
+    
+        var popup_13af9cc8bb1b5155e2884ba7b080e13c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f3b21245429337309f3de9d0409948a2 = $(`<div id="html_f3b21245429337309f3de9d0409948a2" style="width: 100.0%; height: 100.0%;"><b>Panchayat School Nagapattinam</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>🌧 Rainfall +30% by 2050<br>📊 Score: 73.8<br>🎯 2050 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_13af9cc8bb1b5155e2884ba7b080e13c.setContent(html_f3b21245429337309f3de9d0409948a2);
+            
+        
+
+        circle_marker_1a10b4fa869ae4309a8db4339797c590.bindPopup(popup_13af9cc8bb1b5155e2884ba7b080e13c)
+        ;
+
+        
+    
+    
+            circle_marker_1a10b4fa869ae4309a8db4339797c590.bindTooltip(
+                `<div>
+                     Panchayat School Nagapattinam
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_16730b9e627322fa573b0d12ad9e1dd1 = L.circleMarker(
+                [9.37, 78.83],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_54b2414daca8ee9882f70117e11f490e);
+        
+    
+        var popup_5818ebf96eb5a0f3bc9a5ca781e11c4f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0bae0ea6762090fb90bc392fa0b93a57 = $(`<div id="html_0bae0ea6762090fb90bc392fa0b93a57" style="width: 100.0%; height: 100.0%;"><b>School Ramanathapuram</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>🌧 Rainfall +30% by 2050<br>📊 Score: 56.6<br>🎯 2050 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_5818ebf96eb5a0f3bc9a5ca781e11c4f.setContent(html_0bae0ea6762090fb90bc392fa0b93a57);
+            
+        
+
+        circle_marker_16730b9e627322fa573b0d12ad9e1dd1.bindPopup(popup_5818ebf96eb5a0f3bc9a5ca781e11c4f)
+        ;
+
+        
+    
+    
+            circle_marker_16730b9e627322fa573b0d12ad9e1dd1.bindTooltip(
+                `<div>
+                     School Ramanathapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c2a16d01c72b04627071146da952731a = L.circleMarker(
+                [11.75, 79.75],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_54b2414daca8ee9882f70117e11f490e);
+        
+    
+        var popup_93ccaa7f30cea5a1efcb170b8dd34ad4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f01f559ff6eacfc029617b4188381808 = $(`<div id="html_f01f559ff6eacfc029617b4188381808" style="width: 100.0%; height: 100.0%;"><b>Govt School Cuddalore</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>🌧 Rainfall +30% by 2050<br>📊 Score: 51.7<br>🎯 2050 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_93ccaa7f30cea5a1efcb170b8dd34ad4.setContent(html_f01f559ff6eacfc029617b4188381808);
+            
+        
+
+        circle_marker_c2a16d01c72b04627071146da952731a.bindPopup(popup_93ccaa7f30cea5a1efcb170b8dd34ad4)
+        ;
+
+        
+    
+    
+            circle_marker_c2a16d01c72b04627071146da952731a.bindTooltip(
+                `<div>
+                     Govt School Cuddalore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3a21a9d852152de772ff1ff328a00a0e = L.circleMarker(
+                [8.8, 78.15],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(feature_group_54b2414daca8ee9882f70117e11f490e);
+        
+    
+        var popup_305e8fd86dfb57fe9172cc8d081807c8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b450f6f4b79ce5c685637e3e974b4b22 = $(`<div id="html_b450f6f4b79ce5c685637e3e974b4b22" style="width: 100.0%; height: 100.0%;"><b>School Tuticorin</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>🌧 Rainfall +30% by 2050<br>📊 Score: 50.8<br>🎯 2050 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_305e8fd86dfb57fe9172cc8d081807c8.setContent(html_b450f6f4b79ce5c685637e3e974b4b22);
+            
+        
+
+        circle_marker_3a21a9d852152de772ff1ff328a00a0e.bindPopup(popup_305e8fd86dfb57fe9172cc8d081807c8)
+        ;
+
+        
+    
+    
+            circle_marker_3a21a9d852152de772ff1ff328a00a0e.bindTooltip(
+                `<div>
+                     School Tuticorin
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bc8d306d0933f5c2496af06d2bb2dfa7 = L.circleMarker(
+                [12.83, 79.7],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_54b2414daca8ee9882f70117e11f490e);
+        
+    
+        var popup_08de5f848b573766bcf1f66e5dac3c82 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4e9aa47d5234bff648a2bc11c710ca26 = $(`<div id="html_4e9aa47d5234bff648a2bc11c710ca26" style="width: 100.0%; height: 100.0%;"><b>School Kanchipuram</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>🌧 Rainfall +30% by 2050<br>📊 Score: 43.3<br>🎯 2050 Risk: <b>HIGH</b></div>`)[0];
+                popup_08de5f848b573766bcf1f66e5dac3c82.setContent(html_4e9aa47d5234bff648a2bc11c710ca26);
+            
+        
+
+        circle_marker_bc8d306d0933f5c2496af06d2bb2dfa7.bindPopup(popup_08de5f848b573766bcf1f66e5dac3c82)
+        ;
+
+        
+    
+    
+            circle_marker_bc8d306d0933f5c2496af06d2bb2dfa7.bindTooltip(
+                `<div>
+                     School Kanchipuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0fc66c4730b55ed68bd3bd9669117fb0 = L.circleMarker(
+                [10.79, 78.68],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_54b2414daca8ee9882f70117e11f490e);
+        
+    
+        var popup_77341a068700509988f33ce9cc1e733b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0dd2a05442983f08bfb322fd5543f744 = $(`<div id="html_0dd2a05442983f08bfb322fd5543f744" style="width: 100.0%; height: 100.0%;"><b>Govt School Tiruchirappalli</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>🌧 Rainfall +30% by 2050<br>📊 Score: 40.8<br>🎯 2050 Risk: <b>HIGH</b></div>`)[0];
+                popup_77341a068700509988f33ce9cc1e733b.setContent(html_0dd2a05442983f08bfb322fd5543f744);
+            
+        
+
+        circle_marker_0fc66c4730b55ed68bd3bd9669117fb0.bindPopup(popup_77341a068700509988f33ce9cc1e733b)
+        ;
+
+        
+    
+    
+            circle_marker_0fc66c4730b55ed68bd3bd9669117fb0.bindTooltip(
+                `<div>
+                     Govt School Tiruchirappalli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_773c26ab62200ec95a65adee7a5b7c29 = L.circleMarker(
+                [8.71, 77.69],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_54b2414daca8ee9882f70117e11f490e);
+        
+    
+        var popup_439af807c40a50fd56b17d8d8ed63c0e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_94ccaf065b55a2f41429ded0ae7b825b = $(`<div id="html_94ccaf065b55a2f41429ded0ae7b825b" style="width: 100.0%; height: 100.0%;"><b>Panchayat School Tirunelveli</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>🌧 Rainfall +30% by 2050<br>📊 Score: 39.9<br>🎯 2050 Risk: <b>HIGH</b></div>`)[0];
+                popup_439af807c40a50fd56b17d8d8ed63c0e.setContent(html_94ccaf065b55a2f41429ded0ae7b825b);
+            
+        
+
+        circle_marker_773c26ab62200ec95a65adee7a5b7c29.bindPopup(popup_439af807c40a50fd56b17d8d8ed63c0e)
+        ;
+
+        
+    
+    
+            circle_marker_773c26ab62200ec95a65adee7a5b7c29.bindTooltip(
+                `<div>
+                     Panchayat School Tirunelveli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_18cdd8e827427b5b884ea2d9fb77c99e = L.circleMarker(
+                [10.78, 79.13],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_54b2414daca8ee9882f70117e11f490e);
+        
+    
+        var popup_68a8800b5d4edd326bf5dc198df94b20 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_eaea7bcfd50c823c28cbec3eb3dd4a78 = $(`<div id="html_eaea7bcfd50c823c28cbec3eb3dd4a78" style="width: 100.0%; height: 100.0%;"><b>Govt School Thanjavur</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>🌧 Rainfall +30% by 2050<br>📊 Score: 34.4<br>🎯 2050 Risk: <b>HIGH</b></div>`)[0];
+                popup_68a8800b5d4edd326bf5dc198df94b20.setContent(html_eaea7bcfd50c823c28cbec3eb3dd4a78);
+            
+        
+
+        circle_marker_18cdd8e827427b5b884ea2d9fb77c99e.bindPopup(popup_68a8800b5d4edd326bf5dc198df94b20)
+        ;
+
+        
+    
+    
+            circle_marker_18cdd8e827427b5b884ea2d9fb77c99e.bindTooltip(
+                `<div>
+                     Govt School Thanjavur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_66c2e4852a110f970394825d01602be2 = L.circleMarker(
+                [12.92, 79.13],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_54b2414daca8ee9882f70117e11f490e);
+        
+    
+        var popup_e289c5df8c45073e7e8154ce103fc06e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7487aa5eacb95813370d68d8ba845b96 = $(`<div id="html_7487aa5eacb95813370d68d8ba845b96" style="width: 100.0%; height: 100.0%;"><b>High School Vellore</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>🌧 Rainfall +30% by 2050<br>📊 Score: 28.7<br>🎯 2050 Risk: <b>HIGH</b></div>`)[0];
+                popup_e289c5df8c45073e7e8154ce103fc06e.setContent(html_7487aa5eacb95813370d68d8ba845b96);
+            
+        
+
+        circle_marker_66c2e4852a110f970394825d01602be2.bindPopup(popup_e289c5df8c45073e7e8154ce103fc06e)
+        ;
+
+        
+    
+    
+            circle_marker_66c2e4852a110f970394825d01602be2.bindTooltip(
+                `<div>
+                     High School Vellore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a941bba78ab42019f549f951cd253242 = L.circleMarker(
+                [11.93, 79.49],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14, "stroke": true, "weight": 3}
+            ).addTo(feature_group_54b2414daca8ee9882f70117e11f490e);
+        
+    
+        var popup_f0e83a895890a4463a246f491de3eaaf = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f1d7b40485f15d35553d40607a244f16 = $(`<div id="html_f1d7b40485f15d35553d40607a244f16" style="width: 100.0%; height: 100.0%;"><b>School Villupuram</b><br><hr style='margin:4px 0'>📡 ⚠ No connectivity<br>🌧 Rainfall +30% by 2050<br>📊 Score: 29.8<br>🎯 2050 Risk: <b>HIGH</b></div>`)[0];
+                popup_f0e83a895890a4463a246f491de3eaaf.setContent(html_f1d7b40485f15d35553d40607a244f16);
+            
+        
+
+        circle_marker_a941bba78ab42019f549f951cd253242.bindPopup(popup_f0e83a895890a4463a246f491de3eaaf)
+        ;
+
+        
+    
+    
+            circle_marker_a941bba78ab42019f549f951cd253242.bindTooltip(
+                `<div>
+                     School Villupuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4bed93190ab4aa1564561de749647c06 = L.circleMarker(
+                [9.93, 78.12],
+                {"bubblingMouseEvents": true, "color": "#ffaa00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffaa00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(feature_group_54b2414daca8ee9882f70117e11f490e);
+        
+    
+        var popup_266b40918b6bc8d23908d02fc4da35c3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_132da8de4b8104ada102f5b6d4429dfb = $(`<div id="html_132da8de4b8104ada102f5b6d4429dfb" style="width: 100.0%; height: 100.0%;"><b>Govt School Madurai</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>🌧 Rainfall +30% by 2050<br>📊 Score: 16.9<br>🎯 2050 Risk: <b>MEDIUM</b></div>`)[0];
+                popup_266b40918b6bc8d23908d02fc4da35c3.setContent(html_132da8de4b8104ada102f5b6d4429dfb);
+            
+        
+
+        circle_marker_4bed93190ab4aa1564561de749647c06.bindPopup(popup_266b40918b6bc8d23908d02fc4da35c3)
+        ;
+
+        
+    
+    
+            circle_marker_4bed93190ab4aa1564561de749647c06.bindTooltip(
+                `<div>
+                     Govt School Madurai
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_70ce14da0923ee95ceaa385b7b453d1f = L.circleMarker(
+                [13.08, 80.27],
+                {"bubblingMouseEvents": true, "color": "#ffaa00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffaa00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(feature_group_54b2414daca8ee9882f70117e11f490e);
+        
+    
+        var popup_edcd1a9e2f0344fb75331cea54487e61 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e93468bd477d178236d328f2e728e618 = $(`<div id="html_e93468bd477d178236d328f2e728e618" style="width: 100.0%; height: 100.0%;"><b>Govt High School Chennai</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>🌧 Rainfall +30% by 2050<br>📊 Score: 17.9<br>🎯 2050 Risk: <b>MEDIUM</b></div>`)[0];
+                popup_edcd1a9e2f0344fb75331cea54487e61.setContent(html_e93468bd477d178236d328f2e728e618);
+            
+        
+
+        circle_marker_70ce14da0923ee95ceaa385b7b453d1f.bindPopup(popup_edcd1a9e2f0344fb75331cea54487e61)
+        ;
+
+        
+    
+    
+            circle_marker_70ce14da0923ee95ceaa385b7b453d1f.bindTooltip(
+                `<div>
+                     Govt High School Chennai
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b943887957d0949ee73039e135fe28fb = L.circleMarker(
+                [11.01, 76.96],
+                {"bubblingMouseEvents": true, "color": "#2d8a4e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2d8a4e", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(feature_group_54b2414daca8ee9882f70117e11f490e);
+        
+    
+        var popup_7f29a550b5ed127e26f9a3b5d17d008f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_90ab4d9f42b507c89e7f0d9fba8d352c = $(`<div id="html_90ab4d9f42b507c89e7f0d9fba8d352c" style="width: 100.0%; height: 100.0%;"><b>High School Coimbatore</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>🌧 Rainfall +30% by 2050<br>📊 Score: 6.2<br>🎯 2050 Risk: <b>LOW</b></div>`)[0];
+                popup_7f29a550b5ed127e26f9a3b5d17d008f.setContent(html_90ab4d9f42b507c89e7f0d9fba8d352c);
+            
+        
+
+        circle_marker_b943887957d0949ee73039e135fe28fb.bindPopup(popup_7f29a550b5ed127e26f9a3b5d17d008f)
+        ;
+
+        
+    
+    
+            circle_marker_b943887957d0949ee73039e135fe28fb.bindTooltip(
+                `<div>
+                     High School Coimbatore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7f2642d82c440f9640b697649417cefc = L.circleMarker(
+                [11.65, 78.16],
+                {"bubblingMouseEvents": true, "color": "#2d8a4e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2d8a4e", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(feature_group_54b2414daca8ee9882f70117e11f490e);
+        
+    
+        var popup_cb850e6ce53eaba54d73e8bf7508b9ce = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ee25f6f6902e650fdf7337eaf7b08a44 = $(`<div id="html_ee25f6f6902e650fdf7337eaf7b08a44" style="width: 100.0%; height: 100.0%;"><b>Govt School Salem</b><br><hr style='margin:4px 0'>📡 ✅ Connected<br>🌧 Rainfall +30% by 2050<br>📊 Score: 6.4<br>🎯 2050 Risk: <b>LOW</b></div>`)[0];
+                popup_cb850e6ce53eaba54d73e8bf7508b9ce.setContent(html_ee25f6f6902e650fdf7337eaf7b08a44);
+            
+        
+
+        circle_marker_7f2642d82c440f9640b697649417cefc.bindPopup(popup_cb850e6ce53eaba54d73e8bf7508b9ce)
+        ;
+
+        
+    
+    
+            circle_marker_7f2642d82c440f9640b697649417cefc.bindTooltip(
+                `<div>
+                     Govt School Salem
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var layer_control_e967aca7f28cce88e4e5fdb08ec15b92_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_92cb90c2e723f2b3fc56d1f12642626d,
+                },
+                overlays :  {
+                    "Current (2024)" : feature_group_30ef535e0f1b6e1d4f5d2c216ab7a841,
+                    "2050 SSP2-4.5 (+15%)" : feature_group_b20b3e442e816f9633c0c825788a230c,
+                    "2050 SSP5-8.5 (+30%)" : feature_group_54b2414daca8ee9882f70117e11f490e,
+                },
+            };
+            let layer_control_e967aca7f28cce88e4e5fdb08ec15b92 = L.control.layers(
+                layer_control_e967aca7f28cce88e4e5fdb08ec15b92_layers.base_layers,
+                layer_control_e967aca7f28cce88e4e5fdb08ec15b92_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_7cd27a6d178bbee325ba9989c83b94d2);
+
+        
+</script>
+</html>

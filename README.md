@@ -1,7 +1,7 @@
 # Tamil Nadu School Flood Risk Analysis 🏫🌊🛰️
 
 Satellite-based flood risk assessment for schools in Tamil Nadu, India
-combining 4 data sources across 40+ years of climate and flood data,
+combining 5 data sources across 40+ years of climate and flood data,
 including 2050 climate change projections.
 
 ## Run in Google Colab
@@ -12,14 +12,16 @@ including 2050 climate change projections.
 | Day 3 — GFD flood frequency | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day3_aqueduct_hazard.ipynb) |
 | Day 4 — ERA5 rainfall analysis | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day4_era5_climate.ipynb) |
 | Day 5 — SSP 2050 projections | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day5_ssp_projections.ipynb) |
+| Day 6 — Publication maps | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day6_publication_maps.ipynb) |
+| Day 7 — Portfolio finalise | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day7_portfolio_finalise.ipynb) |
 
 ## Data Sources
 | Day | Dataset | Coverage |
 |-----|---------|----------|
 | Day 1 | Sentinel-1 SAR | 2023 monsoon season |
-| Day 2 | JRC Surface Water | 1984–2021 (37 years) |
-| Day 3 | Global Flood Database | 2000–2018 major events |
-| Day 4 | ERA5 Rainfall | 2018–2023 climate data |
+| Day 2 | JRC Surface Water | 1984-2021 (37 years) |
+| Day 3 | Global Flood Database | 2000-2018 major events |
+| Day 4 | ERA5 Rainfall | 2018-2023 climate data |
 | Day 5 | CMIP6 SSP scenarios | 2050 projections |
 
 ## Key Findings — Current Risk
@@ -42,11 +44,21 @@ including 2050 climate change projections.
 - 🗺️ [Day 3 — Master risk map (3 sources)](tamil_nadu_master_risk_map.html)
 - 🗺️ [Day 5 — 2050 scenario map](tamil_nadu_2050_risk_map.html)
 
+## Publication Maps
+- 🖼️ [3-panel scenario map (300 DPI)](tamil_nadu_publication_map.png)
+- 🖼️ [Risk escalation map (300 DPI)](tamil_nadu_risk_change_map.png)
+- 📊 [Rainfall time series chart](tamil_nadu_rainfall_timeseries.png)
+- 📊 [2050 projections chart](tamil_nadu_2050_projections.png)
+
+## Analysis Report
+- 📄 [Full PDF Report](tamil_nadu_flood_risk_report.pdf)
+
 ## Tools Used
 - Google Earth Engine (Sentinel-1, JRC, GFD)
-- Python (GeoPandas, Folium, xarray, pandas)
+- Python (GeoPandas, Folium, xarray, pandas, fpdf2)
 - ERA5 Climate Data (Copernicus CDS API)
 - CMIP6 SSP projections (delta method)
+- Contextily (basemap tiles)
 - Google Colab
 
 ## Repository Structure
@@ -56,14 +68,16 @@ day2_jrc_historical_flood.ipynb     — 37-year flood history
 day3_aqueduct_hazard.ipynb          — GFD major flood events
 day4_era5_climate.ipynb             — ERA5 rainfall analysis
 day5_ssp_projections.ipynb          — 2050 climate projections
+day6_publication_maps.ipynb         — Publication quality maps
+day7_portfolio_finalise.ipynb       — PDF report + portfolio
 tamil_nadu_2050_risk_map.html       — Interactive scenario map
-tamil_nadu_2050_projections.png     — Before/after chart
-tamil_nadu_day4_final_risk.csv      — 4-source risk scores
-tamil_nadu_2050_projections.csv     — 2050 projected scores
+tamil_nadu_publication_map.png      — 3-panel scenario map
+tamil_nadu_risk_change_map.png      — Risk escalation map
+tamil_nadu_flood_risk_report.pdf    — Full analysis report
 TamilNadu_School_FloodRisk.pptx     — Presentation deck
 ```
 
 ## Next Steps
-- Streamlit dashboard deployment (Day 6–7)
+- Streamlit dashboard deployment (Week 3)
 - Giga Spatial library contribution (Week 4)
 - Expand to real Giga school dataset (5,000+ schools)

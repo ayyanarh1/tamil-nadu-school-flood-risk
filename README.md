@@ -1,8 +1,8 @@
 # Tamil Nadu School Flood Risk Analysis 🏫🌊🛰️
 
 Satellite-based flood risk assessment for schools in Tamil Nadu, India
-combining 5 data sources across 40+ years of climate and flood data,
-including 2050 climate change projections.
+combining 6 data sources across 40+ years of climate and flood data,
+including cyclone wind hazard and 2050 climate change projections.
 
 ## Run in Google Colab
 | Notebook | Open |
@@ -14,6 +14,7 @@ including 2050 climate change projections.
 | Day 5 — SSP 2050 projections | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day5_ssp_projections.ipynb) |
 | Day 6 — Publication maps | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day6_publication_maps.ipynb) |
 | Day 7 — Portfolio finalise | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day7_portfolio_finalise.ipynb) |
+| Day 8 — Cyclone wind hazard | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day8_cyclone_wind_hazard.ipynb) |
 
 ## Data Sources
 | Day | Dataset | Coverage |
@@ -23,14 +24,23 @@ including 2050 climate change projections.
 | Day 3 | Global Flood Database | 2000-2018 major events |
 | Day 4 | ERA5 Rainfall | 2018-2023 climate data |
 | Day 5 | CMIP6 SSP scenarios | 2050 projections |
+| Day 8 | IBTrACS Cyclone Tracks | 2000-2023 Bay of Bengal |
 
-## Key Findings — Current Risk
+## Key Findings — Flood Risk Only
 | Risk tier | Schools |
 |-----------|---------|
 | 🚨 CRITICAL | Puducherry Border, Nagapattinam |
 | 🔴 HIGH | Ramanathapuram, Cuddalore, Tuticorin, Kanchipuram, Tiruchirappalli, Tirunelveli, Thanjavur |
 | 🟡 MEDIUM | Vellore, Villupuram, Chennai, Madurai |
 | 🟢 LOW | Coimbatore, Salem |
+
+## Key Findings — Multi-Hazard (Flood + Cyclone)
+| Risk tier | Schools |
+|-----------|---------|
+| 🚨 CRITICAL | Puducherry Border, Nagapattinam, Cuddalore, Kanchipuram, Villupuram, Ramanathapuram, Tiruchirappalli |
+| 🔴 HIGH | Tirunelveli, Chennai, Vellore, Thanjavur, Tuticorin |
+| 🟡 MEDIUM | Salem, Madurai |
+| 🟢 LOW | Coimbatore |
 
 ## Key Findings — 2050 Climate Projections
 | Scenario | New CRITICAL schools |
@@ -43,6 +53,7 @@ including 2050 climate change projections.
 - 🗺️ [Day 2 — Combined SAR+JRC risk map](tamil_nadu_combined_risk_map.html)
 - 🗺️ [Day 3 — Master risk map (3 sources)](tamil_nadu_master_risk_map.html)
 - 🗺️ [Day 5 — 2050 scenario map](tamil_nadu_2050_risk_map.html)
+- 🗺️ [Day 8 — Multi-hazard map](tamil_nadu_multihazard_map.html)
 
 ## Publication Maps
 - 🖼️ [3-panel scenario map (300 DPI)](tamil_nadu_publication_map.png)
@@ -57,6 +68,7 @@ including 2050 climate change projections.
 - Google Earth Engine (Sentinel-1, JRC, GFD)
 - Python (GeoPandas, Folium, xarray, pandas, fpdf2)
 - ERA5 Climate Data (Copernicus CDS API)
+- IBTrACS Cyclone Track Data (NOAA)
 - CMIP6 SSP projections (delta method)
 - Contextily (basemap tiles)
 - Google Colab
@@ -70,14 +82,16 @@ day4_era5_climate.ipynb             — ERA5 rainfall analysis
 day5_ssp_projections.ipynb          — 2050 climate projections
 day6_publication_maps.ipynb         — Publication quality maps
 day7_portfolio_finalise.ipynb       — PDF report + portfolio
-tamil_nadu_2050_risk_map.html       — Interactive scenario map
-tamil_nadu_publication_map.png      — 3-panel scenario map
-tamil_nadu_risk_change_map.png      — Risk escalation map
+day8_cyclone_wind_hazard.ipynb      — Cyclone hazard analysis
+tamil_nadu_multihazard_map.html     — Multi-hazard interactive map
+tamil_nadu_multihazard_scores.csv   — Flood + cyclone risk scores
+tamil_nadu_cyclone_hazard.csv       — Cyclone track proximity data
 tamil_nadu_flood_risk_report.pdf    — Full analysis report
 TamilNadu_School_FloodRisk.pptx     — Presentation deck
 ```
 
 ## Next Steps
+- Vulnerability index (Day 9)
 - Streamlit dashboard deployment (Week 3)
 - Giga Spatial library contribution (Week 4)
 - Expand to real Giga school dataset (5,000+ schools)

@@ -1,0 +1,16 @@
+school_name,connectivity,flood_score,storms_200km,storms_100km,cyclone_risk,cyclone_norm,multi_hazard_score,conn_penalty,final_score,final_risk,rank,latitude,longitude
+School Puducherry Border,connected,96.7,21,10,HIGH,87.5,93.0,0,93.0,CRITICAL,1,11.93,79.83
+Panchayat School Nagapattinam,none,56.8,19,9,HIGH,79.2,65.8,15,80.8,CRITICAL,2,10.76,79.84
+Govt School Cuddalore,none,39.8,21,11,HIGH,87.5,58.9,15,73.9,CRITICAL,3,11.75,79.75
+School Kanchipuram,none,33.3,19,11,HIGH,79.2,51.7,15,66.7,CRITICAL,4,12.83,79.7
+School Villupuram,none,22.9,20,11,HIGH,83.3,47.1,15,62.1,CRITICAL,5,11.93,79.49
+School Ramanathapuram,none,43.5,11,5,HIGH,45.8,44.4,15,59.4,CRITICAL,6,9.37,78.83
+Govt School Tiruchirappalli,none,31.4,12,6,HIGH,50.0,38.8,15,53.8,CRITICAL,7,10.79,78.68
+Panchayat School Tirunelveli,none,30.7,9,4,MEDIUM,37.5,33.4,15,48.4,HIGH,8,8.71,77.69
+Govt High School Chennai,connected,13.8,24,12,HIGH,100.0,48.3,0,48.3,HIGH,9,13.08,80.27
+High School Vellore,connected,22.1,16,9,HIGH,66.7,39.9,0,39.9,HIGH,10,12.92,79.13
+Govt School Thanjavur,connected,26.5,14,9,HIGH,58.3,39.2,0,39.2,HIGH,11,10.78,79.13
+School Tuticorin,connected,39.1,9,2,MEDIUM,37.5,38.5,0,38.5,HIGH,12,8.8,78.15
+Govt School Salem,connected,4.9,15,4,HIGH,62.5,27.9,0,27.9,MEDIUM,13,11.65,78.16
+Govt School Madurai,connected,13.0,10,3,HIGH,41.7,24.5,0,24.5,MEDIUM,14,9.93,78.12
+High School Coimbatore,connected,4.8,6,3,MEDIUM,25.0,12.9,0,12.9,LOW,15,11.01,76.96

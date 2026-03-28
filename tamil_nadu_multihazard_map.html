@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_52c8157b07b9f87c2a5efbd4edc528d1 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position:fixed;bottom:30px;left:30px;
+     background:white;padding:14px;border-radius:10px;
+     border:1px solid #ccc;font-size:12px;z-index:1000;
+     box-shadow:2px 2px 6px rgba(0,0,0,0.15)">
+     <b>Multi-Hazard Risk</b><br>
+     <b>Flood + Cyclone</b><br><br>
+     <span style='color:#cc0000;font-size:16px'>●</span> Critical<br>
+     <span style='color:#ff6600;font-size:16px'>●</span> High<br>
+     <span style='color:#ffaa00;font-size:16px'>●</span> Medium<br>
+     <span style='color:#2d8a4e;font-size:16px'>●</span> Low<br><br>
+     <i>Size = risk magnitude</i>
+</div>
+    
+            <div class="folium-map" id="map_52c8157b07b9f87c2a5efbd4edc528d1" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_52c8157b07b9f87c2a5efbd4edc528d1 = L.map(
+                "map_52c8157b07b9f87c2a5efbd4edc528d1",
+                {
+                    center: [10.5, 78.5],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_17c91a0bedbbd20aee9525e2ad9369a0 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_17c91a0bedbbd20aee9525e2ad9369a0.addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+            var circle_marker_2e0ce39dfbc5133932a21c6a90a13c91 = L.circleMarker(
+                [11.93, 79.83],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 3}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+        var popup_05d0be9a0e3fa1984a2549d283791fec = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_9141bacf0b1dc7bb0b7a75af5d7206c0 = $(`<div id="html_9141bacf0b1dc7bb0b7a75af5d7206c0" style="width: 100.0%; height: 100.0%;"><b>#1 School Puducherry Border</b><br><hr style='margin:4px 0'>🌊 Flood score: 96.7<br>🌪 Cyclone score: 87.5<br>📊 Multi-hazard: 93.0<br>📡 ✅ Connected<br><hr style='margin:4px 0'>🎯 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_05d0be9a0e3fa1984a2549d283791fec.setContent(html_9141bacf0b1dc7bb0b7a75af5d7206c0);
+            
+        
+
+        circle_marker_2e0ce39dfbc5133932a21c6a90a13c91.bindPopup(popup_05d0be9a0e3fa1984a2549d283791fec)
+        ;
+
+        
+    
+    
+            circle_marker_2e0ce39dfbc5133932a21c6a90a13c91.bindTooltip(
+                `<div>
+                     #1 School Puducherry Border
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_3b735d94f53521cf2ea813bbb543b7a8 = L.marker(
+                [11.93, 79.83],
+                {
+}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+            var div_icon_2ff479bb4c6918f012f7c1ce01e22ba7 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#1\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_3b735d94f53521cf2ea813bbb543b7a8.setIcon(div_icon_2ff479bb4c6918f012f7c1ce01e22ba7);
+            
+    
+            var circle_marker_e64e0f0a4b5526edb402418eec4e622a = L.circleMarker(
+                [10.76, 79.84],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 3}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+        var popup_0d0d313310d6349dbe185da5e8a86d33 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_e47127902cfd2f9bb94dc9e2b5555c9a = $(`<div id="html_e47127902cfd2f9bb94dc9e2b5555c9a" style="width: 100.0%; height: 100.0%;"><b>#2 Panchayat School Nagapattinam</b><br><hr style='margin:4px 0'>🌊 Flood score: 56.8<br>🌪 Cyclone score: 79.2<br>📊 Multi-hazard: 80.8<br>📡 ⚠ No connectivity<br><hr style='margin:4px 0'>🎯 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_0d0d313310d6349dbe185da5e8a86d33.setContent(html_e47127902cfd2f9bb94dc9e2b5555c9a);
+            
+        
+
+        circle_marker_e64e0f0a4b5526edb402418eec4e622a.bindPopup(popup_0d0d313310d6349dbe185da5e8a86d33)
+        ;
+
+        
+    
+    
+            circle_marker_e64e0f0a4b5526edb402418eec4e622a.bindTooltip(
+                `<div>
+                     #2 Panchayat School Nagapattinam
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e0ae996a8d08e913da0ed99692824805 = L.marker(
+                [10.76, 79.84],
+                {
+}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+            var div_icon_c575fe7247129f67b585778a7e32afc4 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#2\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_e0ae996a8d08e913da0ed99692824805.setIcon(div_icon_c575fe7247129f67b585778a7e32afc4);
+            
+    
+            var circle_marker_5f4d81a8adc45db351a1a66be5a28e50 = L.circleMarker(
+                [11.75, 79.75],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 3}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+        var popup_f8857543a78d602bc442a2b4abfefae7 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_82f015c941b39397525318b173209079 = $(`<div id="html_82f015c941b39397525318b173209079" style="width: 100.0%; height: 100.0%;"><b>#3 Govt School Cuddalore</b><br><hr style='margin:4px 0'>🌊 Flood score: 39.8<br>🌪 Cyclone score: 87.5<br>📊 Multi-hazard: 73.9<br>📡 ⚠ No connectivity<br><hr style='margin:4px 0'>🎯 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_f8857543a78d602bc442a2b4abfefae7.setContent(html_82f015c941b39397525318b173209079);
+            
+        
+
+        circle_marker_5f4d81a8adc45db351a1a66be5a28e50.bindPopup(popup_f8857543a78d602bc442a2b4abfefae7)
+        ;
+
+        
+    
+    
+            circle_marker_5f4d81a8adc45db351a1a66be5a28e50.bindTooltip(
+                `<div>
+                     #3 Govt School Cuddalore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e3c89168a6bd2f0128e946b734acab7e = L.marker(
+                [11.75, 79.75],
+                {
+}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+            var div_icon_f7661325e48e584912b5271bb3870f30 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#3\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_e3c89168a6bd2f0128e946b734acab7e.setIcon(div_icon_f7661325e48e584912b5271bb3870f30);
+            
+    
+            var circle_marker_28fb0b9b7b2b0a695e5b932190b4dcf3 = L.circleMarker(
+                [12.83, 79.7],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 3}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+        var popup_ef3d25866f3523a432abd884b7e2cfd9 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_3264cd8d640d31f09b2588b1fcb0de70 = $(`<div id="html_3264cd8d640d31f09b2588b1fcb0de70" style="width: 100.0%; height: 100.0%;"><b>#4 School Kanchipuram</b><br><hr style='margin:4px 0'>🌊 Flood score: 33.3<br>🌪 Cyclone score: 79.2<br>📊 Multi-hazard: 66.7<br>📡 ⚠ No connectivity<br><hr style='margin:4px 0'>🎯 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_ef3d25866f3523a432abd884b7e2cfd9.setContent(html_3264cd8d640d31f09b2588b1fcb0de70);
+            
+        
+
+        circle_marker_28fb0b9b7b2b0a695e5b932190b4dcf3.bindPopup(popup_ef3d25866f3523a432abd884b7e2cfd9)
+        ;
+
+        
+    
+    
+            circle_marker_28fb0b9b7b2b0a695e5b932190b4dcf3.bindTooltip(
+                `<div>
+                     #4 School Kanchipuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_71b6a27004759d69de67168e0ad626ed = L.marker(
+                [12.83, 79.7],
+                {
+}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+            var div_icon_e44b273f12144ca00e3b192fb3d91f48 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#4\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_71b6a27004759d69de67168e0ad626ed.setIcon(div_icon_e44b273f12144ca00e3b192fb3d91f48);
+            
+    
+            var circle_marker_151a69ba58d2c94d79e08c30ae2aa3f8 = L.circleMarker(
+                [11.93, 79.49],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 3}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+        var popup_9b39d28f5958a90debec9a71dc5993b4 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_a9250a7f26945883651b30a062b0de14 = $(`<div id="html_a9250a7f26945883651b30a062b0de14" style="width: 100.0%; height: 100.0%;"><b>#5 School Villupuram</b><br><hr style='margin:4px 0'>🌊 Flood score: 22.9<br>🌪 Cyclone score: 83.3<br>📊 Multi-hazard: 62.1<br>📡 ⚠ No connectivity<br><hr style='margin:4px 0'>🎯 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_9b39d28f5958a90debec9a71dc5993b4.setContent(html_a9250a7f26945883651b30a062b0de14);
+            
+        
+
+        circle_marker_151a69ba58d2c94d79e08c30ae2aa3f8.bindPopup(popup_9b39d28f5958a90debec9a71dc5993b4)
+        ;
+
+        
+    
+    
+            circle_marker_151a69ba58d2c94d79e08c30ae2aa3f8.bindTooltip(
+                `<div>
+                     #5 School Villupuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a11db591e154451232c74bd3aec168a8 = L.marker(
+                [11.93, 79.49],
+                {
+}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+            var div_icon_ffc921c9fa87a75da5af71c74278c96e = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#5\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_a11db591e154451232c74bd3aec168a8.setIcon(div_icon_ffc921c9fa87a75da5af71c74278c96e);
+            
+    
+            var circle_marker_936c66dd97af417e1c4867c57a328fb4 = L.circleMarker(
+                [9.37, 78.83],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 3}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+        var popup_abec43c518e3346e9d2b52f2278020ba = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_a094e8f61e81aafb2438aff0427adee3 = $(`<div id="html_a094e8f61e81aafb2438aff0427adee3" style="width: 100.0%; height: 100.0%;"><b>#6 School Ramanathapuram</b><br><hr style='margin:4px 0'>🌊 Flood score: 43.5<br>🌪 Cyclone score: 45.8<br>📊 Multi-hazard: 59.4<br>📡 ⚠ No connectivity<br><hr style='margin:4px 0'>🎯 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_abec43c518e3346e9d2b52f2278020ba.setContent(html_a094e8f61e81aafb2438aff0427adee3);
+            
+        
+
+        circle_marker_936c66dd97af417e1c4867c57a328fb4.bindPopup(popup_abec43c518e3346e9d2b52f2278020ba)
+        ;
+
+        
+    
+    
+            circle_marker_936c66dd97af417e1c4867c57a328fb4.bindTooltip(
+                `<div>
+                     #6 School Ramanathapuram
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_9ddaa42e56f9430601f6624890003bc6 = L.marker(
+                [9.37, 78.83],
+                {
+}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+            var div_icon_c02bbf08096036199f910806a680dfa6 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#6\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_9ddaa42e56f9430601f6624890003bc6.setIcon(div_icon_c02bbf08096036199f910806a680dfa6);
+            
+    
+            var circle_marker_254668ca86ec33fa09416bc9da42bf34 = L.circleMarker(
+                [10.79, 78.68],
+                {"bubblingMouseEvents": true, "color": "#cc0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cc0000", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 3}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+        var popup_cc3e102d1aa716c602d2ae6614ee7231 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_efe05a4676808da6bd28bd5213006b39 = $(`<div id="html_efe05a4676808da6bd28bd5213006b39" style="width: 100.0%; height: 100.0%;"><b>#7 Govt School Tiruchirappalli</b><br><hr style='margin:4px 0'>🌊 Flood score: 31.4<br>🌪 Cyclone score: 50.0<br>📊 Multi-hazard: 53.8<br>📡 ⚠ No connectivity<br><hr style='margin:4px 0'>🎯 Risk: <b>CRITICAL</b></div>`)[0];
+                popup_cc3e102d1aa716c602d2ae6614ee7231.setContent(html_efe05a4676808da6bd28bd5213006b39);
+            
+        
+
+        circle_marker_254668ca86ec33fa09416bc9da42bf34.bindPopup(popup_cc3e102d1aa716c602d2ae6614ee7231)
+        ;
+
+        
+    
+    
+            circle_marker_254668ca86ec33fa09416bc9da42bf34.bindTooltip(
+                `<div>
+                     #7 Govt School Tiruchirappalli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_11e963a5fca032496b4b325fc6345afa = L.marker(
+                [10.79, 78.68],
+                {
+}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+            var div_icon_90042d1746f93bfbe8a376d9b71e558a = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#7\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_11e963a5fca032496b4b325fc6345afa.setIcon(div_icon_90042d1746f93bfbe8a376d9b71e558a);
+            
+    
+            var circle_marker_4f54ca0ee22e249dc8c9c8d2505f27cc = L.circleMarker(
+                [8.71, 77.69],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+        var popup_6a47e94845eba517786dec875b7d3065 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_d2cac460ff3d1147adb4e7d5433191e0 = $(`<div id="html_d2cac460ff3d1147adb4e7d5433191e0" style="width: 100.0%; height: 100.0%;"><b>#8 Panchayat School Tirunelveli</b><br><hr style='margin:4px 0'>🌊 Flood score: 30.7<br>🌪 Cyclone score: 37.5<br>📊 Multi-hazard: 48.4<br>📡 ⚠ No connectivity<br><hr style='margin:4px 0'>🎯 Risk: <b>HIGH</b></div>`)[0];
+                popup_6a47e94845eba517786dec875b7d3065.setContent(html_d2cac460ff3d1147adb4e7d5433191e0);
+            
+        
+
+        circle_marker_4f54ca0ee22e249dc8c9c8d2505f27cc.bindPopup(popup_6a47e94845eba517786dec875b7d3065)
+        ;
+
+        
+    
+    
+            circle_marker_4f54ca0ee22e249dc8c9c8d2505f27cc.bindTooltip(
+                `<div>
+                     #8 Panchayat School Tirunelveli
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_bbe41b55b8ca84af597e9ceecd54ccda = L.marker(
+                [8.71, 77.69],
+                {
+}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+            var div_icon_fc29b13eaf5ac60c75f005c7a51a01a4 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#8\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_bbe41b55b8ca84af597e9ceecd54ccda.setIcon(div_icon_fc29b13eaf5ac60c75f005c7a51a01a4);
+            
+    
+            var circle_marker_86b3efc505127ad53434b2c58c23dd52 = L.circleMarker(
+                [13.08, 80.27],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+        var popup_04afc6300f1fa129000b17ade63d4557 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_c4ac7ef61918286e5249d4e3df62e866 = $(`<div id="html_c4ac7ef61918286e5249d4e3df62e866" style="width: 100.0%; height: 100.0%;"><b>#9 Govt High School Chennai</b><br><hr style='margin:4px 0'>🌊 Flood score: 13.8<br>🌪 Cyclone score: 100.0<br>📊 Multi-hazard: 48.3<br>📡 ✅ Connected<br><hr style='margin:4px 0'>🎯 Risk: <b>HIGH</b></div>`)[0];
+                popup_04afc6300f1fa129000b17ade63d4557.setContent(html_c4ac7ef61918286e5249d4e3df62e866);
+            
+        
+
+        circle_marker_86b3efc505127ad53434b2c58c23dd52.bindPopup(popup_04afc6300f1fa129000b17ade63d4557)
+        ;
+
+        
+    
+    
+            circle_marker_86b3efc505127ad53434b2c58c23dd52.bindTooltip(
+                `<div>
+                     #9 Govt High School Chennai
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_de1c78ef9933f8603fb30abc01abeba7 = L.marker(
+                [13.08, 80.27],
+                {
+}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+            var div_icon_ad926811f434f100f7827b816fe0d9b5 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#9\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_de1c78ef9933f8603fb30abc01abeba7.setIcon(div_icon_ad926811f434f100f7827b816fe0d9b5);
+            
+    
+            var circle_marker_0d69a116a19a7453fdeb479c7fbb21e7 = L.circleMarker(
+                [12.92, 79.13],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+        var popup_a24cab0fe1176f5cde9b55800db18ec1 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_20b94031d7f8fadd7abce870cca29bcc = $(`<div id="html_20b94031d7f8fadd7abce870cca29bcc" style="width: 100.0%; height: 100.0%;"><b>#10 High School Vellore</b><br><hr style='margin:4px 0'>🌊 Flood score: 22.1<br>🌪 Cyclone score: 66.7<br>📊 Multi-hazard: 39.9<br>📡 ✅ Connected<br><hr style='margin:4px 0'>🎯 Risk: <b>HIGH</b></div>`)[0];
+                popup_a24cab0fe1176f5cde9b55800db18ec1.setContent(html_20b94031d7f8fadd7abce870cca29bcc);
+            
+        
+
+        circle_marker_0d69a116a19a7453fdeb479c7fbb21e7.bindPopup(popup_a24cab0fe1176f5cde9b55800db18ec1)
+        ;
+
+        
+    
+    
+            circle_marker_0d69a116a19a7453fdeb479c7fbb21e7.bindTooltip(
+                `<div>
+                     #10 High School Vellore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a65b707e5211f69689f2eda9328ef925 = L.marker(
+                [12.92, 79.13],
+                {
+}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+            var div_icon_70e2ee9341e3d9669adacded8923fd15 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#10\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_a65b707e5211f69689f2eda9328ef925.setIcon(div_icon_70e2ee9341e3d9669adacded8923fd15);
+            
+    
+            var circle_marker_529f7dd6a247cec12fab89cba556d720 = L.circleMarker(
+                [10.78, 79.13],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+        var popup_98618e780a508ccab796f213abf8ec2c = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_460cac0ba1cc5de7c63a7612a5ae7822 = $(`<div id="html_460cac0ba1cc5de7c63a7612a5ae7822" style="width: 100.0%; height: 100.0%;"><b>#11 Govt School Thanjavur</b><br><hr style='margin:4px 0'>🌊 Flood score: 26.5<br>🌪 Cyclone score: 58.3<br>📊 Multi-hazard: 39.2<br>📡 ✅ Connected<br><hr style='margin:4px 0'>🎯 Risk: <b>HIGH</b></div>`)[0];
+                popup_98618e780a508ccab796f213abf8ec2c.setContent(html_460cac0ba1cc5de7c63a7612a5ae7822);
+            
+        
+
+        circle_marker_529f7dd6a247cec12fab89cba556d720.bindPopup(popup_98618e780a508ccab796f213abf8ec2c)
+        ;
+
+        
+    
+    
+            circle_marker_529f7dd6a247cec12fab89cba556d720.bindTooltip(
+                `<div>
+                     #11 Govt School Thanjavur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_265570d91bd85e340a10ae17d748d618 = L.marker(
+                [10.78, 79.13],
+                {
+}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+            var div_icon_ae73c769c4fa7a88c39ca3a19d29756a = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#11\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_265570d91bd85e340a10ae17d748d618.setIcon(div_icon_ae73c769c4fa7a88c39ca3a19d29756a);
+            
+    
+            var circle_marker_0ed7f55ba04e754994489844ed6f4b81 = L.circleMarker(
+                [8.8, 78.15],
+                {"bubblingMouseEvents": true, "color": "#ff6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff6600", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15, "stroke": true, "weight": 3}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+        var popup_b12f863587051bdf21e8cb225fbf59b1 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_01321abc6dc4a4085466ce3d925d7525 = $(`<div id="html_01321abc6dc4a4085466ce3d925d7525" style="width: 100.0%; height: 100.0%;"><b>#12 School Tuticorin</b><br><hr style='margin:4px 0'>🌊 Flood score: 39.1<br>🌪 Cyclone score: 37.5<br>📊 Multi-hazard: 38.5<br>📡 ✅ Connected<br><hr style='margin:4px 0'>🎯 Risk: <b>HIGH</b></div>`)[0];
+                popup_b12f863587051bdf21e8cb225fbf59b1.setContent(html_01321abc6dc4a4085466ce3d925d7525);
+            
+        
+
+        circle_marker_0ed7f55ba04e754994489844ed6f4b81.bindPopup(popup_b12f863587051bdf21e8cb225fbf59b1)
+        ;
+
+        
+    
+    
+            circle_marker_0ed7f55ba04e754994489844ed6f4b81.bindTooltip(
+                `<div>
+                     #12 School Tuticorin
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0ae9bce0852f7de548b44daf878393ff = L.marker(
+                [8.8, 78.15],
+                {
+}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+            var div_icon_b2766b99abe6721a230c2ba2afa658f2 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#12\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_0ae9bce0852f7de548b44daf878393ff.setIcon(div_icon_b2766b99abe6721a230c2ba2afa658f2);
+            
+    
+            var circle_marker_a460ddf8b820b0873b397de8ccc252cf = L.circleMarker(
+                [11.65, 78.16],
+                {"bubblingMouseEvents": true, "color": "#ffaa00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffaa00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+        var popup_37f7285399d4ce654b1997ffe3fe0817 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_1eb381ff7f3202b234ec3390bfdd7ee6 = $(`<div id="html_1eb381ff7f3202b234ec3390bfdd7ee6" style="width: 100.0%; height: 100.0%;"><b>#13 Govt School Salem</b><br><hr style='margin:4px 0'>🌊 Flood score: 4.9<br>🌪 Cyclone score: 62.5<br>📊 Multi-hazard: 27.9<br>📡 ✅ Connected<br><hr style='margin:4px 0'>🎯 Risk: <b>MEDIUM</b></div>`)[0];
+                popup_37f7285399d4ce654b1997ffe3fe0817.setContent(html_1eb381ff7f3202b234ec3390bfdd7ee6);
+            
+        
+
+        circle_marker_a460ddf8b820b0873b397de8ccc252cf.bindPopup(popup_37f7285399d4ce654b1997ffe3fe0817)
+        ;
+
+        
+    
+    
+            circle_marker_a460ddf8b820b0873b397de8ccc252cf.bindTooltip(
+                `<div>
+                     #13 Govt School Salem
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a0bf3fbe0c5ecdf3311dbaf595894163 = L.marker(
+                [11.65, 78.16],
+                {
+}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+            var div_icon_36da739837386d770bb6ecb41a5f8f1a = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#13\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_a0bf3fbe0c5ecdf3311dbaf595894163.setIcon(div_icon_36da739837386d770bb6ecb41a5f8f1a);
+            
+    
+            var circle_marker_eb9fbf3f6ca643d1d657aa77f0be14f4 = L.circleMarker(
+                [9.93, 78.12],
+                {"bubblingMouseEvents": true, "color": "#ffaa00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffaa00", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+        var popup_3304ddabfd91ea099b74b779d8434f30 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_50b1f40bbfdb94a8586aa5254107cf4a = $(`<div id="html_50b1f40bbfdb94a8586aa5254107cf4a" style="width: 100.0%; height: 100.0%;"><b>#14 Govt School Madurai</b><br><hr style='margin:4px 0'>🌊 Flood score: 13.0<br>🌪 Cyclone score: 41.7<br>📊 Multi-hazard: 24.5<br>📡 ✅ Connected<br><hr style='margin:4px 0'>🎯 Risk: <b>MEDIUM</b></div>`)[0];
+                popup_3304ddabfd91ea099b74b779d8434f30.setContent(html_50b1f40bbfdb94a8586aa5254107cf4a);
+            
+        
+
+        circle_marker_eb9fbf3f6ca643d1d657aa77f0be14f4.bindPopup(popup_3304ddabfd91ea099b74b779d8434f30)
+        ;
+
+        
+    
+    
+            circle_marker_eb9fbf3f6ca643d1d657aa77f0be14f4.bindTooltip(
+                `<div>
+                     #14 Govt School Madurai
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_ed9641076b7a675b51fbb52b0ab3fc3b = L.marker(
+                [9.93, 78.12],
+                {
+}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+            var div_icon_2baa442c9f0641c1ba0ec4ba1fa3d729 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#14\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_ed9641076b7a675b51fbb52b0ab3fc3b.setIcon(div_icon_2baa442c9f0641c1ba0ec4ba1fa3d729);
+            
+    
+            var circle_marker_0d3dd45ebf85b3ee6c8f2c9478bd215c = L.circleMarker(
+                [11.01, 76.96],
+                {"bubblingMouseEvents": true, "color": "#2d8a4e", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2d8a4e", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 3}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+        var popup_6024116c492d88539bc372f6eb673e20 = L.popup({
+  "maxWidth": 260,
+});
+
+        
+            
+                var html_93eac8f6e4a991a02af7ac3eb7c998e8 = $(`<div id="html_93eac8f6e4a991a02af7ac3eb7c998e8" style="width: 100.0%; height: 100.0%;"><b>#15 High School Coimbatore</b><br><hr style='margin:4px 0'>🌊 Flood score: 4.8<br>🌪 Cyclone score: 25.0<br>📊 Multi-hazard: 12.9<br>📡 ✅ Connected<br><hr style='margin:4px 0'>🎯 Risk: <b>LOW</b></div>`)[0];
+                popup_6024116c492d88539bc372f6eb673e20.setContent(html_93eac8f6e4a991a02af7ac3eb7c998e8);
+            
+        
+
+        circle_marker_0d3dd45ebf85b3ee6c8f2c9478bd215c.bindPopup(popup_6024116c492d88539bc372f6eb673e20)
+        ;
+
+        
+    
+    
+            circle_marker_0d3dd45ebf85b3ee6c8f2c9478bd215c.bindTooltip(
+                `<div>
+                     #15 High School Coimbatore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_2566c745b78170bb04391012632dacdb = L.marker(
+                [11.01, 76.96],
+                {
+}
+            ).addTo(map_52c8157b07b9f87c2a5efbd4edc528d1);
+        
+    
+            var div_icon_57383f2ac117fac9038c309e3c797c9a = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px;font-weight:bold;color:white;text-align:center;margin-top:4px\"\u003e#15\u003c/div\u003e",
+  "iconSize": [20, 20],
+  "iconAnchor": [10, 10],
+  "className": "empty",
+});
+        
+    
+                marker_2566c745b78170bb04391012632dacdb.setIcon(div_icon_57383f2ac117fac9038c309e3c797c9a);
+            
+</script>
+</html>

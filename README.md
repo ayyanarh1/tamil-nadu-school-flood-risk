@@ -2,7 +2,7 @@
 
 Satellite-based flood risk assessment for schools in Tamil Nadu, India
 combining 6 data sources across 40+ years of climate and flood data,
-including cyclone wind hazard and 2050 climate change projections.
+including cyclone wind hazard, vulnerability index and 2050 climate projections.
 
 ## Run in Google Colab
 | Notebook | Open |
@@ -15,6 +15,7 @@ including cyclone wind hazard and 2050 climate change projections.
 | Day 6 — Publication maps | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day6_publication_maps.ipynb) |
 | Day 7 — Portfolio finalise | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day7_portfolio_finalise.ipynb) |
 | Day 8 — Cyclone wind hazard | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day8_cyclone_wind_hazard.ipynb) |
+| Day 9 — Vulnerability index | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day9_vulnerability_index.ipynb) |
 
 ## Data Sources
 | Day | Dataset | Coverage |
@@ -25,22 +26,21 @@ including cyclone wind hazard and 2050 climate change projections.
 | Day 4 | ERA5 Rainfall | 2018-2023 climate data |
 | Day 5 | CMIP6 SSP scenarios | 2050 projections |
 | Day 8 | IBTrACS Cyclone Tracks | 2000-2023 Bay of Bengal |
+| Day 9 | OpenStreetMap (OSMnx) | 2168 Tamil Nadu hospitals |
 
-## Key Findings — Flood Risk Only
+## Risk Framework — IPCC H x E x V
+| Component | Data sources | Weight |
+|-----------|-------------|--------|
+| Hazard (H) | SAR + JRC + GFD + ERA5 + Cyclone | 40% |
+| Exposure (E) | Coastal location classification | 30% |
+| Vulnerability (V) | Connectivity + Hospital + Rural | 30% |
+
+## Key Findings — H x E x V Final Rankings
 | Risk tier | Schools |
 |-----------|---------|
-| 🚨 CRITICAL | Puducherry Border, Nagapattinam |
-| 🔴 HIGH | Ramanathapuram, Cuddalore, Tuticorin, Kanchipuram, Tiruchirappalli, Tirunelveli, Thanjavur |
-| 🟡 MEDIUM | Vellore, Villupuram, Chennai, Madurai |
-| 🟢 LOW | Coimbatore, Salem |
-
-## Key Findings — Multi-Hazard (Flood + Cyclone)
-| Risk tier | Schools |
-|-----------|---------|
-| 🚨 CRITICAL | Puducherry Border, Nagapattinam, Cuddalore, Kanchipuram, Villupuram, Ramanathapuram, Tiruchirappalli |
-| 🔴 HIGH | Tirunelveli, Chennai, Vellore, Thanjavur, Tuticorin |
-| 🟡 MEDIUM | Salem, Madurai |
-| 🟢 LOW | Coimbatore |
+| 🚨 CRITICAL | Puducherry Border, Nagapattinam, Ramanathapuram, Kanchipuram, Tirunelveli, Cuddalore, Villupuram, Tuticorin, Chennai, Tiruchirappalli |
+| 🔴 HIGH | Thanjavur, Vellore, Salem, Madurai |
+| 🟡 MEDIUM | Coimbatore |
 
 ## Key Findings — 2050 Climate Projections
 | Scenario | New CRITICAL schools |
@@ -66,9 +66,10 @@ including cyclone wind hazard and 2050 climate change projections.
 
 ## Tools Used
 - Google Earth Engine (Sentinel-1, JRC, GFD)
-- Python (GeoPandas, Folium, xarray, pandas, fpdf2)
+- Python (GeoPandas, Folium, OSMnx, xarray, pandas, fpdf2)
 - ERA5 Climate Data (Copernicus CDS API)
 - IBTrACS Cyclone Track Data (NOAA)
+- OpenStreetMap via OSMnx (hospital locations)
 - CMIP6 SSP projections (delta method)
 - Contextily (basemap tiles)
 - Google Colab
@@ -83,15 +84,22 @@ day5_ssp_projections.ipynb          — 2050 climate projections
 day6_publication_maps.ipynb         — Publication quality maps
 day7_portfolio_finalise.ipynb       — PDF report + portfolio
 day8_cyclone_wind_hazard.ipynb      — Cyclone hazard analysis
+day9_vulnerability_index.ipynb      — H x E x V framework
 tamil_nadu_multihazard_map.html     — Multi-hazard interactive map
-tamil_nadu_multihazard_scores.csv   — Flood + cyclone risk scores
-tamil_nadu_cyclone_hazard.csv       — Cyclone track proximity data
+tamil_nadu_hev_risk.csv             — Full H x E x V risk scores
 tamil_nadu_flood_risk_report.pdf    — Full analysis report
 TamilNadu_School_FloodRisk.pptx     — Presentation deck
 ```
 
 ## Next Steps
-- Vulnerability index (Day 9)
+- Decision report for country offices (Day 10)
 - Streamlit dashboard deployment (Week 3)
 - Giga Spatial library contribution (Week 4)
 - Expand to real Giga school dataset (5,000+ schools)
+```
+
+---
+
+Commit message:
+```
+Update README — add Day 9 vulnerability index + H x E x V framework

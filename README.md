@@ -16,6 +16,7 @@ including cyclone wind hazard, vulnerability index and 2050 climate projections.
 | Day 7 — Portfolio finalise | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day7_portfolio_finalise.ipynb) |
 | Day 8 — Cyclone wind hazard | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day8_cyclone_wind_hazard.ipynb) |
 | Day 9 — Vulnerability index | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day9_vulnerability_index.ipynb) |
+| Day 10 — Decision report | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day10_decision_report.ipynb) |
 
 ## Data Sources
 | Day | Dataset | Coverage |
@@ -48,6 +49,14 @@ including cyclone wind hazard, vulnerability index and 2050 climate projections.
 | SSP2-4.5 (+15% rainfall) | Ramanathapuram added |
 | SSP5-8.5 (+30% rainfall) | Ramanathapuram, Cuddalore, Tuticorin added |
 
+## Priority Actions
+| Action | Schools |
+|--------|---------|
+| 🚨 URGENT connectivity + flood resilience | Nagapattinam, Ramanathapuram, Cuddalore, Kanchipuram, Tirunelveli, Villupuram |
+| 🚨 URGENT emergency access + flood shelter | Tirunelveli, Tuticorin |
+| 🔴 HIGH PRIORITY flood resilience planning | Puducherry Border, Chennai, Tiruchirappalli |
+| 🟡 MONITOR disaster preparedness | Thanjavur, Vellore, Salem, Madurai |
+
 ## Interactive Maps
 - 🗺️ [Day 1 — Sentinel-1 flood map](tamil_nadu_school_risk.html)
 - 🗺️ [Day 2 — Combined SAR+JRC risk map](tamil_nadu_combined_risk_map.html)
@@ -61,12 +70,15 @@ including cyclone wind hazard, vulnerability index and 2050 climate projections.
 - 📊 [Rainfall time series chart](tamil_nadu_rainfall_timeseries.png)
 - 📊 [2050 projections chart](tamil_nadu_2050_projections.png)
 
-## Analysis Report
+## Reports & Data
 - 📄 [Full PDF Report](tamil_nadu_flood_risk_report.pdf)
+- 📊 [Excel Decision Report](tamil_nadu_school_risk_report.xlsx)
+- 📋 [H x E x V Risk Scores CSV](tamil_nadu_hev_risk.csv)
+- 📋 [Multi-hazard Scores CSV](tamil_nadu_multihazard_scores.csv)
 
 ## Tools Used
 - Google Earth Engine (Sentinel-1, JRC, GFD)
-- Python (GeoPandas, Folium, OSMnx, xarray, pandas, fpdf2)
+- Python (GeoPandas, Folium, OSMnx, xarray, pandas, openpyxl, fpdf2)
 - ERA5 Climate Data (Copernicus CDS API)
 - IBTrACS Cyclone Track Data (NOAA)
 - OpenStreetMap via OSMnx (hospital locations)
@@ -76,30 +88,23 @@ including cyclone wind hazard, vulnerability index and 2050 climate projections.
 
 ## Repository Structure
 ```
-day1_tamil_nadu_flood_risk.ipynb    — SAR flood mapping
-day2_jrc_historical_flood.ipynb     — 37-year flood history
-day3_aqueduct_hazard.ipynb          — GFD major flood events
-day4_era5_climate.ipynb             — ERA5 rainfall analysis
-day5_ssp_projections.ipynb          — 2050 climate projections
-day6_publication_maps.ipynb         — Publication quality maps
-day7_portfolio_finalise.ipynb       — PDF report + portfolio
-day8_cyclone_wind_hazard.ipynb      — Cyclone hazard analysis
-day9_vulnerability_index.ipynb      — H x E x V framework
-tamil_nadu_multihazard_map.html     — Multi-hazard interactive map
-tamil_nadu_hev_risk.csv             — Full H x E x V risk scores
-tamil_nadu_flood_risk_report.pdf    — Full analysis report
-TamilNadu_School_FloodRisk.pptx     — Presentation deck
-```
+day1_tamil_nadu_flood_risk.ipynb     — SAR flood mapping
+day2_jrc_historical_flood.ipynb      — 37-year flood history
+day3_aqueduct_hazard.ipynb           — GFD major flood events
+day4_era5_climate.ipynb              — ERA5 rainfall analysis
+day5_ssp_projections.ipynb           — 2050 climate projections
+day6_publication_maps.ipynb          — Publication quality maps
+day7_portfolio_finalise.ipynb        — PDF report + portfolio
+day8_cyclone_wind_hazard.ipynb       — Cyclone hazard analysis
+day9_vulnerability_index.ipynb       — H x E x V framework
+day10_decision_report.ipynb          — Excel decision report
+tamil_nadu_multihazard_map.html      — Multi-hazard interactive map
+tamil_nadu_hev_risk.csv              — Full H x E x V risk scores
+tamil_nadu_school_risk_report.xlsx   — Excel decision report
+tamil_nadu_flood_risk_report.pdf     — Full analysis report
+TamilNadu_School_FloodRisk.pptx      — Presentation deck
 
-## Next Steps
-- Decision report for country offices (Day 10)
-- Streamlit dashboard deployment (Week 3)
-- Giga Spatial library contribution (Week 4)
-- Expand to real Giga school dataset (5,000+ schools)
-```
-
----
 
 Commit message:
 ```
-Update README — add Day 9 vulnerability index + H x E x V framework
+Update README — add Day 10 decision report + priority actions table

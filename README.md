@@ -17,6 +17,7 @@ including cyclone wind hazard, vulnerability index and 2050 climate projections.
 | Day 8 — Cyclone wind hazard | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day8_cyclone_wind_hazard.ipynb) |
 | Day 9 — Vulnerability index | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day9_vulnerability_index.ipynb) |
 | Day 10 — Decision report | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day10_decision_report.ipynb) |
+| Day 11 — Kepler visualization | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day11_kepler_visualization.ipynb) |
 
 ## Data Sources
 | Day | Dataset | Coverage |
@@ -67,6 +68,7 @@ including cyclone wind hazard, vulnerability index and 2050 climate projections.
 ## Publication Maps
 - 🖼️ [3-panel scenario map (300 DPI)](tamil_nadu_publication_map.png)
 - 🖼️ [Risk escalation map (300 DPI)](tamil_nadu_risk_change_map.png)
+- 🖼️ [Dark theme risk map (300 DPI)](tamil_nadu_kepler_style_map.png)
 - 📊 [Rainfall time series chart](tamil_nadu_rainfall_timeseries.png)
 - 📊 [2050 projections chart](tamil_nadu_2050_projections.png)
 
@@ -83,6 +85,7 @@ including cyclone wind hazard, vulnerability index and 2050 climate projections.
 - IBTrACS Cyclone Track Data (NOAA)
 - OpenStreetMap via OSMnx (hospital locations)
 - CMIP6 SSP projections (delta method)
+- Kepler.gl (interactive visualization)
 - Contextily (basemap tiles)
 - Google Colab
 
@@ -98,13 +101,12 @@ day7_portfolio_finalise.ipynb        — PDF report + portfolio
 day8_cyclone_wind_hazard.ipynb       — Cyclone hazard analysis
 day9_vulnerability_index.ipynb       — H x E x V framework
 day10_decision_report.ipynb          — Excel decision report
+day11_kepler_visualization.ipynb     — Kepler.gl dark theme map
 tamil_nadu_multihazard_map.html      — Multi-hazard interactive map
+tamil_nadu_kepler_style_map.png      — Dark theme 300 DPI map
+tamil_nadu_publication_map.png       — 3-panel scenario map
+tamil_nadu_risk_change_map.png       — Risk escalation map
 tamil_nadu_hev_risk.csv              — Full H x E x V risk scores
 tamil_nadu_school_risk_report.xlsx   — Excel decision report
 tamil_nadu_flood_risk_report.pdf     — Full analysis report
 TamilNadu_School_FloodRisk.pptx      — Presentation deck
-
-
-Commit message:
-```
-Update README — add Day 10 decision report + priority actions table

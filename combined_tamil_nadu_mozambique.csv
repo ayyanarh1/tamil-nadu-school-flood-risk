@@ -1,0 +1,26 @@
+school_name,latitude,longitude,risk,score,country
+School Puducherry Border,11.93,79.83,CRITICAL,68.7,Tamil Nadu
+Panchayat School Nagapattinam,10.76,79.84,CRITICAL,68.3,Tamil Nadu
+School Ramanathapuram,9.37,78.83,CRITICAL,67.0,Tamil Nadu
+School Kanchipuram,12.83,79.7,CRITICAL,66.6,Tamil Nadu
+Panchayat School Tirunelveli,8.71,77.69,CRITICAL,65.9,Tamil Nadu
+Govt School Cuddalore,11.75,79.75,CRITICAL,65.6,Tamil Nadu
+School Villupuram,11.93,79.49,CRITICAL,62.3,Tamil Nadu
+School Tuticorin,8.8,78.15,CRITICAL,54.6,Tamil Nadu
+Govt High School Chennai,13.08,80.27,CRITICAL,44.8,Tamil Nadu
+Govt School Tiruchirappalli,10.79,78.68,CRITICAL,41.1,Tamil Nadu
+Govt School Thanjavur,10.78,79.13,HIGH,33.7,Tamil Nadu
+High School Vellore,12.92,79.13,HIGH,29.5,Tamil Nadu
+Govt School Salem,11.65,78.16,HIGH,24.7,Tamil Nadu
+Govt School Madurai,9.93,78.12,HIGH,23.3,Tamil Nadu
+High School Coimbatore,11.01,76.96,MEDIUM,18.7,Tamil Nadu
+School Inhambane Coast,-23.86,35.38,CRITICAL,100.2,Mozambique
+Primary School Quelimane,-17.88,36.89,CRITICAL,86.2,Mozambique
+Primary School Tete,-16.16,33.59,CRITICAL,61.3,Mozambique
+Primary School Gaza,-24.05,34.4,CRITICAL,53.8,Mozambique
+Secondary School Beira Coast,-19.84,34.84,CRITICAL,78.3,Mozambique
+Primary School Sofala,-19.52,34.56,CRITICAL,73.3,Mozambique
+Secondary School Zambezia,-17.05,36.98,HIGH,47.3,Mozambique
+School Cabo Delgado,-12.37,40.52,MEDIUM,25.7,Mozambique
+Primary School Maputo Central,-25.96,32.57,LOW,8.3,Mozambique
+Secondary School Nampula,-15.12,39.27,HIGH,34.7,Mozambique

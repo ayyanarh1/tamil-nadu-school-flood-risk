@@ -1,0 +1,11 @@
+school_name,latitude,longitude,connectivity,flood_score,cyclone_norm,final_multi,multi_risk
+School Inhambane Coast,-23.86,35.38,none,93.2,73.3,100.2,CRITICAL
+Primary School Quelimane,-17.88,36.89,none,56.4,93.3,86.2,CRITICAL
+Primary School Tete,-16.16,33.59,none,54.9,33.3,61.3,CRITICAL
+Primary School Gaza,-24.05,34.4,connected,54.2,53.3,53.8,CRITICAL
+Secondary School Beira Coast,-19.84,34.84,none,38.9,100.0,78.3,CRITICAL
+Primary School Sofala,-19.52,34.56,none,34.9,93.3,73.3,CRITICAL
+Secondary School Zambezia,-17.05,36.98,none,0.5,80.0,47.3,HIGH
+School Cabo Delgado,-12.37,40.52,none,0.0,26.7,25.7,MEDIUM
+Primary School Maputo Central,-25.96,32.57,connected,0.5,20.0,8.3,LOW
+Secondary School Nampula,-15.12,39.27,connected,0.0,86.7,34.7,HIGH

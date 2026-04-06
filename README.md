@@ -1,9 +1,16 @@
 # Multi-Country School Flood Risk Analysis 🏫🌊🛰️
 
+## Live Dashboard
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://tamil-nadu-school-flood-risk-ewc2sj7fhrvvtkwlpw5jzf.streamlit.app/)
+
+**[Open Live Dashboard](https://tamil-nadu-school-flood-risk-ewc2sj7fhrvvtkwlpw5jzf.streamlit.app/)**
+
 Satellite-based flood risk assessment for schools across Tamil Nadu (India)
 and Mozambique, combining 6 data sources across 40+ years of climate and
 flood data, including cyclone wind hazard, vulnerability index and 2050
 climate projections.
+
+---
 
 ## Countries Covered
 | Country | Schools | CRITICAL | No Connectivity |
@@ -27,6 +34,8 @@ climate projections.
 | Day 10 — Decision report | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day10_decision_report.ipynb) |
 | Day 11 — Kepler visualization | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day11_kepler_visualization.ipynb) |
 | Day 12 — Mozambique pilot | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day12_mozambique_pilot.ipynb) |
+| Day 13 — Portfolio 2 finalise | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day13_portfolio2_finalise.ipynb) |
+| Day 14 — Streamlit dashboard | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day14_streamlit_app.ipynb) |
 
 ## Data Sources
 | Day | Dataset | Coverage |
@@ -56,7 +65,7 @@ climate projections.
 ## Key Findings — Mozambique
 | Risk tier | Schools |
 |-----------|---------|
-| 🚨 CRITICAL | Inhambane Coast, Quelimane, Tete, Gaza, Beira Coast, Sofala |
+| 🚨 CRITICAL | Inhambane Coast, Quelimane, Beira Coast, Sofala, Tete, Gaza |
 | 🔴 HIGH | Zambezia, Nampula |
 | 🟡 MEDIUM | Cabo Delgado |
 | 🟢 LOW | Maputo Central |
@@ -96,16 +105,18 @@ climate projections.
 - 📊 [2050 projections chart](tamil_nadu_2050_projections.png)
 
 ## Reports & Data
-- 📄 [Full PDF Report](tamil_nadu_flood_risk_report.pdf)
+- 📄 [Tamil Nadu PDF Report](tamil_nadu_flood_risk_report.pdf)
+- 📄 [Multi-Country PDF Report](multi_country_risk_report.pdf)
 - 📊 [Excel Decision Report](tamil_nadu_school_risk_report.xlsx)
-- 📋 [H x E x V Risk Scores CSV](tamil_nadu_hev_risk.csv)
-- 📋 [Multi-hazard Scores CSV](tamil_nadu_multihazard_scores.csv)
-- 📋 [Mozambique Risk Scores CSV](mozambique_risk_scores.csv)
+- 📋 [H x E x V Risk Scores](tamil_nadu_hev_risk.csv)
+- 📋 [Multi-hazard Scores](tamil_nadu_multihazard_scores.csv)
+- 📋 [Mozambique Risk Scores](mozambique_risk_scores.csv)
 - 📋 [Combined 25-school Dataset](combined_tamil_nadu_mozambique.csv)
 
 ## Tools Used
 - Google Earth Engine (Sentinel-1, JRC, GFD)
 - Python (GeoPandas, Folium, OSMnx, xarray, pandas, openpyxl, fpdf2)
+- Streamlit + Streamlit Cloud (live dashboard)
 - ERA5 Climate Data (Copernicus CDS API)
 - IBTrACS Cyclone Track Data (NOAA)
 - OpenStreetMap via OSMnx (hospital locations)

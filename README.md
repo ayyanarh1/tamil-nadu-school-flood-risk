@@ -36,6 +36,7 @@ climate projections.
 | Day 12 — Mozambique pilot | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day12_mozambique_pilot.ipynb) |
 | Day 13 — Portfolio 2 finalise | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day13_portfolio2_finalise.ipynb) |
 | Day 14 — Streamlit dashboard | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day14_streamlit_app.ipynb) |
+| Day 15 — Streamlit enhanced | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day15_streamlit_enhanced.ipynb) |
 
 ## Data Sources
 | Day | Dataset | Coverage |

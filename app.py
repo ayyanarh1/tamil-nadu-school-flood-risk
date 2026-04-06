@@ -3,6 +3,8 @@ import streamlit as st
 import pandas as pd
 import folium
 from streamlit_folium import st_folium
+import plotly.express as px
+import plotly.graph_objects as go
 import numpy as np
 
 # Page config
@@ -12,15 +14,42 @@ st.set_page_config(
     layout="wide"
 )
 
+# Custom CSS
+st.markdown("""
+<style>
+    .main-header {
+        background: linear-gradient(90deg, #021C3B, #065A82);
+        padding: 20px;
+        border-radius: 10px;
+        color: white;
+        margin-bottom: 20px;
+    }
+    .metric-card {
+        background: #f0f7ff;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #065A82;
+    }
+    .critical { color: #CC0000; font-weight: bold; }
+    .high { color: #FF6600; font-weight: bold; }
+    .medium { color: #FFAA00; font-weight: bold; }
+    .low { color: #2D8A4E; font-weight: bold; }
+</style>
+""", unsafe_allow_html=True)
+
 # Header
-st.title("🏫 School Flood Risk Dashboard")
-st.markdown("**UN Giga Initiative — Multi-Country Climate Hazard Assessment**")
-st.markdown("---")
+st.markdown("""
+<div class="main-header">
+    <h1>🏫 School Flood Risk Dashboard</h1>
+    <p>UN Giga Initiative — Multi-Country Climate Hazard Assessment</p>
+    <p>Tamil Nadu, India + Mozambique | 25 Schools | 6 Data Sources</p>
+</div>
+""", unsafe_allow_html=True)
 
 # Data
 @st.cache_data
 def load_data():
-    data = {
+    return pd.DataFrame({
         "school_name": [
             "School Puducherry Border",
             "Panchayat School Nagapattinam",
@@ -91,6 +120,13 @@ def load_data():
             73.3, 93.3, 100.0, 93.3, 33.3,
             53.3, 80.0, 86.7, 26.7, 20.0
         ],
+        "vulnerability": [
+            19.9, 55.0, 79.2, 68.2, 90.0,
+            55.0, 59.8, 45.7, 0.1, 40.2,
+            15.0, 0.1, 0.1, 0.1, 0.0,
+            75.0, 80.0, 85.0, 78.0, 70.0,
+            30.0, 65.0, 20.0, 60.0, 10.0
+        ],
         "connectivity": [
             "Connected", "No connectivity", "No connectivity",
             "No connectivity", "No connectivity", "No connectivity",
@@ -99,22 +135,29 @@ def load_data():
             "Connected", "Connected", "Connected",
             "No connectivity", "No connectivity", "No connectivity",
             "No connectivity", "No connectivity", "Connected",
-            "No connectivity", "Connected", "No connectivity", "Connected"
+            "No connectivity", "Connected", "No connectivity",
+            "Connected"
         ],
-        "risk_2050": [
+        "risk_ssp245": [
+            "CRITICAL", "CRITICAL", "CRITICAL", "CRITICAL", "CRITICAL",
+            "HIGH", "HIGH", "HIGH", "CRITICAL", "CRITICAL",
+            "HIGH", "HIGH", "HIGH", "MEDIUM", "LOW",
+            "CRITICAL", "CRITICAL", "CRITICAL", "CRITICAL", "CRITICAL",
+            "CRITICAL", "HIGH", "HIGH", "MEDIUM", "LOW"
+        ],
+        "risk_ssp585": [
             "CRITICAL", "CRITICAL", "CRITICAL", "CRITICAL", "CRITICAL",
             "CRITICAL", "CRITICAL", "CRITICAL", "CRITICAL", "CRITICAL",
             "HIGH", "HIGH", "HIGH", "HIGH", "MEDIUM",
             "CRITICAL", "CRITICAL", "CRITICAL", "CRITICAL", "CRITICAL",
-            "CRITICAL", "HIGH", "HIGH", "MEDIUM", "LOW"
+            "CRITICAL", "CRITICAL", "HIGH", "HIGH", "LOW"
         ]
-    }
-    return pd.DataFrame(data)
+    })
 
 df = load_data()
 
-# Sidebar filters
-st.sidebar.header("Filters")
+# ── Sidebar ──
+st.sidebar.header("🔧 Filters")
 
 country = st.sidebar.multiselect(
     "Country",
@@ -134,37 +177,61 @@ connectivity = st.sidebar.multiselect(
     default=df["connectivity"].unique()
 )
 
+scenario = st.sidebar.radio(
+    "Climate scenario",
+    options=["Current (2024)", "2050 SSP2-4.5", "2050 SSP5-8.5"]
+)
+
+st.sidebar.markdown("---")
+st.sidebar.markdown(
+    "**Data sources:** Sentinel-1, JRC, GFD, ERA5, IBTrACS"
+)
+st.sidebar.markdown(
+    "[View on GitHub](https://github.com/ayyanarh1/tamil-nadu-school-flood-risk)"
+)
+
+# Map risk column based on scenario
+scenario_col = {
+    "Current (2024)":  "risk_tier",
+    "2050 SSP2-4.5":   "risk_ssp245",
+    "2050 SSP5-8.5":   "risk_ssp585"
+}[scenario]
+
 # Filter data
 filtered = df[
     (df["country"].isin(country)) &
-    (df["risk_tier"].isin(risk_filter)) &
+    (df[scenario_col].isin(risk_filter)) &
     (df["connectivity"].isin(connectivity))
-]
+].copy()
 
-# Metrics row
-col1, col2, col3, col4 = st.columns(4)
+# ── Metrics ──
+st.subheader(f"Summary — {scenario}")
+col1, col2, col3, col4, col5 = st.columns(5)
 col1.metric("Total schools", len(filtered))
-col2.metric("CRITICAL risk",
-    len(filtered[filtered.risk_tier == "CRITICAL"]))
-col3.metric("No connectivity",
-    len(filtered[filtered.connectivity == "No connectivity"]))
-col4.metric("Avg risk score",
-    round(filtered.hev_score.mean(), 1) if len(filtered) > 0 else 0)
+col2.metric("CRITICAL",
+    len(filtered[filtered[scenario_col] == "CRITICAL"]),
+    delta=None
+)
+col3.metric("HIGH",
+    len(filtered[filtered[scenario_col] == "HIGH"])
+)
+col4.metric("No connectivity",
+    len(filtered[filtered.connectivity == "No connectivity"])
+)
+col5.metric("Avg score",
+    round(filtered.hev_score.mean(), 1) if len(filtered) > 0 else 0
+)
 
 st.markdown("---")
 
-# Map + table columns
+# ── Map + Table ──
 map_col, table_col = st.columns([3, 2])
 
 with map_col:
-    st.subheader("Risk Map")
+    st.subheader("🗺️ Risk Map")
 
-    # Build Folium map
-    if len(filtered) > 0:
-        center_lat = filtered.latitude.mean()
-        center_lon = filtered.longitude.mean()
-    else:
-        center_lat, center_lon = 0, 60
+    center_lat = filtered.latitude.mean() if len(filtered) > 0 else 0
+    center_lon = filtered.longitude.mean() if len(filtered) > 0 else 60
 
     m = folium.Map(
         location=[center_lat, center_lon],
@@ -180,7 +247,9 @@ with map_col:
     }
 
     for _, row in filtered.iterrows():
-        color = color_map.get(row["risk_tier"], "gray")
+        risk_val = row[scenario_col]
+        color = color_map.get(risk_val, "gray")
+
         folium.CircleMarker(
             location=[row["latitude"], row["longitude"]],
             radius=max(8, row["hev_score"] / 8),
@@ -192,64 +261,192 @@ with map_col:
             popup=folium.Popup(
                 f"<b>{row['school_name']}</b><br>"
                 f"Country: {row['country']}<br>"
-                f"Risk: {row['risk_tier']}<br>"
+                f"Scenario: {scenario}<br>"
+                f"Risk: <b>{risk_val}</b><br>"
                 f"Score: {row['hev_score']}<br>"
                 f"Connectivity: {row['connectivity']}",
-                max_width=250
+                max_width=260
             )
         ).add_to(m)
 
-    st_folium(m, width=700, height=450)
+    st_folium(m, width=700, height=420)
 
 with table_col:
-    st.subheader("Risk Rankings")
+    st.subheader("📋 Rankings")
     display_df = filtered[[
         "school_name", "country",
-        "risk_tier", "hev_score", "connectivity"
+        scenario_col, "hev_score", "connectivity"
     ]].sort_values("hev_score", ascending=False)
     display_df.columns = [
-        "School", "Country",
-        "Risk", "Score", "Connectivity"
+        "School", "Country", "Risk", "Score", "Connectivity"
     ]
-    st.dataframe(display_df, height=450, hide_index=True)
+    st.dataframe(display_df, height=420, hide_index=True)
 
 st.markdown("---")
 
-# School detail
-st.subheader("School Detail")
+# ── Charts ──
+st.subheader("📊 Risk Analysis Charts")
+
+chart1, chart2 = st.columns(2)
+
+with chart1:
+    # Risk tier distribution
+    risk_counts = filtered[scenario_col].value_counts().reset_index()
+    risk_counts.columns = ["Risk Tier", "Count"]
+    risk_order = ["CRITICAL", "HIGH", "MEDIUM", "LOW"]
+    risk_colors = {
+        "CRITICAL": "#CC0000",
+        "HIGH": "#FF6600",
+        "MEDIUM": "#FFAA00",
+        "LOW": "#2D8A4E"
+    }
+    fig1 = px.bar(
+        risk_counts,
+        x="Risk Tier", y="Count",
+        color="Risk Tier",
+        color_discrete_map=risk_colors,
+        title=f"Risk Distribution — {scenario}",
+        category_orders={"Risk Tier": risk_order}
+    )
+    fig1.update_layout(showlegend=False, height=300)
+    st.plotly_chart(fig1, use_container_width=True)
+
+with chart2:
+    # Flood vs cyclone scatter
+    fig2 = px.scatter(
+        filtered,
+        x="flood_score",
+        y="cyclone_score",
+        color=scenario_col,
+        color_discrete_map=color_map,
+        size="hev_score",
+        hover_name="school_name",
+        hover_data=["country", "connectivity"],
+        title="Flood vs Cyclone Risk",
+        labels={
+            "flood_score": "Flood Score",
+            "cyclone_score": "Cyclone Score"
+        }
+    )
+    fig2.update_layout(height=300)
+    st.plotly_chart(fig2, use_container_width=True)
+
+st.markdown("---")
+
+# ── School Detail ──
+st.subheader("🏫 School Profile")
+
 selected = st.selectbox(
-    "Select a school",
+    "Select a school for detailed analysis",
     options=filtered["school_name"].tolist()
 )
 
 if selected:
     school = filtered[filtered.school_name == selected].iloc[0]
-    c1, c2, c3, c4, c5 = st.columns(5)
-    c1.metric("HEV Score", school["hev_score"])
-    c2.metric("Flood Score", school["flood_score"])
-    c3.metric("Cyclone Score", school["cyclone_score"])
-    c4.metric("Risk Tier", school["risk_tier"])
-    c5.metric("2050 Risk", school["risk_2050"])
 
-    st.info(
-        f"**{school['school_name']}** | "
-        f"{school['country']} | "
-        f"Connectivity: {school['connectivity']}"
+    info_col, chart_col = st.columns([2, 3])
+
+    with info_col:
+        st.markdown(f"### {school['school_name']}")
+        st.markdown(f"**Country:** {school['country']}")
+        st.markdown(f"**Connectivity:** {school['connectivity']}")
+        st.markdown("---")
+
+        c1, c2 = st.columns(2)
+        c1.metric("HEV Score", school["hev_score"])
+        c2.metric("Current Risk", school["risk_tier"])
+        c1.metric("2050 SSP2-4.5", school["risk_ssp245"])
+        c2.metric("2050 SSP5-8.5", school["risk_ssp585"])
+
+    with chart_col:
+        # Radar chart for school
+        categories = [
+            "Flood", "Cyclone",
+            "Vulnerability", "Overall"
+        ]
+        values = [
+            school["flood_score"],
+            school["cyclone_score"],
+            school["vulnerability"],
+            school["hev_score"]
+        ]
+
+        fig3 = go.Figure()
+        fig3.add_trace(go.Bar(
+            x=categories,
+            y=values,
+            marker_color=[
+                "#065A82", "#1C7293",
+                "#FF6600", "#CC0000"
+            ],
+            text=[f"{v:.1f}" for v in values],
+            textposition="outside"
+        ))
+        fig3.update_layout(
+            title=f"Risk Profile — {selected[:30]}",
+            yaxis_range=[0, 110],
+            height=280,
+            showlegend=False
+        )
+        st.plotly_chart(fig3, use_container_width=True)
+
+st.markdown("---")
+
+# ── Download ──
+st.subheader("💾 Download Data")
+
+dl1, dl2 = st.columns(2)
+with dl1:
+    csv = filtered.to_csv(index=False)
+    st.download_button(
+        label="Download filtered data (CSV)",
+        data=csv,
+        file_name="school_risk_filtered.csv",
+        mime="text/csv"
+    )
+with dl2:
+    all_csv = df.to_csv(index=False)
+    st.download_button(
+        label="Download full dataset (CSV)",
+        data=all_csv,
+        file_name="school_risk_all.csv",
+        mime="text/csv"
     )
 
-# Download
-st.markdown("---")
-st.subheader("Download Data")
-csv = filtered.to_csv(index=False)
-st.download_button(
-    label="Download filtered data as CSV",
-    data=csv,
-    file_name="school_risk_data.csv",
-    mime="text/csv"
-)
+# ── Methodology ──
+with st.expander("📖 Methodology & Data Sources"):
+    st.markdown("""
+    ### Risk Framework
+    This dashboard uses the IPCC H x E x V framework:
+    - **Hazard (40%):** Sentinel-1 SAR + JRC Surface Water +
+      Global Flood Database + ERA5 Rainfall + IBTrACS Cyclones
+    - **Exposure (30%):** Coastal location classification
+    - **Vulnerability (30%):** Connectivity + Hospital distance + Rural
+
+    ### Data Sources
+    | Source | Coverage | Resolution |
+    |--------|----------|------------|
+    | Sentinel-1 SAR | 2023 monsoon / 2019 Cyclone Idai | 10m |
+    | JRC Surface Water | 1984-2021 (37 years) | 30m |
+    | Global Flood Database | 2000-2018 | 250m |
+    | ERA5 Rainfall | 2018-2023 | ~30km |
+    | IBTrACS Cyclones | 2000-2023 | Track points |
+
+    ### 2050 Projections
+    Based on IPCC AR6 delta method:
+    - SSP2-4.5: +15% rainfall increase by 2050
+    - SSP5-8.5: +30% rainfall increase by 2050
+
+    ### Limitations
+    - School locations are sample data
+    - SSP projections use simplified delta method
+    - Analysis covers 25 schools — expandable to full Giga dataset
+
+    **Full code:** github.com/ayyanarh1/tamil-nadu-school-flood-risk
+    """)
 
 st.caption(
-    "Data sources: Sentinel-1 SAR, JRC Surface Water, "
-    "Global Flood Database, ERA5, IBTrACS | "
+    "Built with Google Earth Engine, Python and Streamlit | "
+    "UN Giga Initiative | "
     "github.com/ayyanarh1/tamil-nadu-school-flood-risk"
 )

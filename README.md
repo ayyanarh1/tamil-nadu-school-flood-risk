@@ -6,9 +6,10 @@
 **[Open Live Dashboard](https://tamil-nadu-school-flood-risk-ewc2sj7fhrvvtkwlpw5jzf.streamlit.app/)**
 
 Satellite-based flood risk assessment for 580 schools across Tamil Nadu (India)
-and Mozambique, combining 6 data sources across 40+ years of climate and
-flood data, including cyclone wind hazard, vulnerability index and 2050
-climate projections.
+and Mozambique, combining 6 data sources across 40+ years of climate and flood
+data. Demonstrates how open satellite and climate datasets can identify schools
+at risk from flooding and cyclones — applicable to any international development,
+disaster risk or education sector context.
 
 ---
 

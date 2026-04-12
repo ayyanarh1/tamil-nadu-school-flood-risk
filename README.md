@@ -5,19 +5,27 @@
 
 **[Open Live Dashboard](https://tamil-nadu-school-flood-risk-ewc2sj7fhrvvtkwlpw5jzf.streamlit.app/)**
 
-Satellite-based flood risk assessment for schools across Tamil Nadu (India)
+Satellite-based flood risk assessment for 580 schools across Tamil Nadu (India)
 and Mozambique, combining 6 data sources across 40+ years of climate and
 flood data, including cyclone wind hazard, vulnerability index and 2050
 climate projections.
 
 ---
 
-## Countries Covered
+## Scale
 | Country | Schools | CRITICAL | No Connectivity |
 |---------|---------|----------|----------------|
-| 🇮🇳 Tamil Nadu, India | 15 | 10 | 7 |
+| 🇮🇳 Tamil Nadu, India | 570 | 82 | 285 |
 | 🇲🇿 Mozambique | 10 | 6 | 7 |
-| **Total** | **25** | **16** | **14** |
+| **Total** | **580** | **88** | **292** |
+
+## Dashboard Features
+- 🗺️ Interactive risk map with clustering
+- 📊 4 Plotly charts — distribution, district, connectivity, histogram
+- 📋 Filterable data table with CSV download
+- 🏫 School profile with mini map
+- 🔄 Country, district, risk tier and connectivity filters
+- 📖 Methodology expander
 
 ## Run in Google Colab
 | Notebook | Open |
@@ -37,6 +45,8 @@ climate projections.
 | Day 13 — Portfolio 2 finalise | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day13_portfolio2_finalise.ipynb) |
 | Day 14 — Streamlit dashboard | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day14_streamlit_app.ipynb) |
 | Day 15 — Streamlit enhanced | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day15_streamlit_enhanced.ipynb) |
+| Day 16 — Giga 570 schools | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day16_giga_real_data.ipynb) |
+| Day 17 — Streamlit 570 schools | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ayyanarh1/tamil-nadu-school-flood-risk/blob/main/day17_streamlit_570.ipynb) |
 
 ## Data Sources
 | Day | Dataset | Coverage |
@@ -48,6 +58,7 @@ climate projections.
 | Day 5 | CMIP6 SSP scenarios | 2050 projections |
 | Day 8 | IBTrACS Cyclone Tracks | 2000-2023 Bay of Bengal + Indian Ocean |
 | Day 9 | OpenStreetMap (OSMnx) | 2168 Tamil Nadu hospitals |
+| Day 16 | Giga-style school dataset | 570 Tamil Nadu schools |
 
 ## Risk Framework — IPCC H x E x V
 | Component | Data sources | Weight |
@@ -56,12 +67,18 @@ climate projections.
 | Exposure (E) | Coastal location classification | 30% |
 | Vulnerability (V) | Connectivity + Hospital + Rural | 30% |
 
-## Key Findings — Tamil Nadu
-| Risk tier | Schools |
-|-----------|---------|
-| 🚨 CRITICAL | Puducherry Border, Nagapattinam, Ramanathapuram, Kanchipuram, Tirunelveli, Cuddalore, Villupuram, Tuticorin, Chennai, Tiruchirappalli |
-| 🔴 HIGH | Thanjavur, Vellore, Salem, Madurai |
-| 🟡 MEDIUM | Coimbatore |
+## Key Findings — Tamil Nadu (570 schools)
+| District | Schools | CRITICAL | Avg Score |
+|----------|---------|----------|-----------|
+| Ramanathapuram | 25 | 14 | 44.7 |
+| Thoothukudi | 30 | 15 | 43.1 |
+| Cuddalore | 40 | 15 | 37.6 |
+| Nagapattinam | 35 | 13 | 35.9 |
+| Chennai | 50 | 17 | 34.6 |
+| Puducherry | 20 | 7 | 32.7 |
+| Madurai | 50 | 0 | 7.1 |
+| Salem | 40 | 0 | 7.3 |
+| Coimbatore | 50 | 1 | 7.8 |
 
 ## Key Findings — Mozambique
 | Risk tier | Schools |
@@ -77,17 +94,17 @@ climate projections.
 > The pipeline is generalisable across LMIC contexts.
 
 ## Key Findings — 2050 Climate Projections
-| Scenario | New CRITICAL schools |
-|----------|---------------------|
-| SSP2-4.5 (+15% rainfall) | Ramanathapuram added |
-| SSP5-8.5 (+30% rainfall) | Ramanathapuram, Cuddalore, Tuticorin added |
+| Scenario | Impact |
+|----------|--------|
+| SSP2-4.5 (+15% rainfall) | 3 more Tamil Nadu schools reach CRITICAL |
+| SSP5-8.5 (+30% rainfall) | 5 more Tamil Nadu schools reach CRITICAL |
 
 ## Priority Actions
 | Action | Schools |
 |--------|---------|
-| 🚨 URGENT connectivity + flood resilience | Nagapattinam, Ramanathapuram, Quelimane, Beira Coast |
+| 🚨 URGENT connectivity + flood resilience | Ramanathapuram, Thoothukudi coastal schools |
 | 🚨 URGENT emergency access + flood shelter | Tirunelveli, Tuticorin, Inhambane |
-| 🔴 HIGH PRIORITY flood resilience planning | Puducherry Border, Chennai, Sofala |
+| 🔴 HIGH PRIORITY flood resilience planning | Chennai, Cuddalore, Nagapattinam coastal schools |
 | 🟡 MONITOR disaster preparedness | Thanjavur, Vellore, Zambezia, Nampula |
 
 ## Interactive Maps
@@ -97,6 +114,7 @@ climate projections.
 - 🗺️ [Day 5 — 2050 scenario map](tamil_nadu_2050_risk_map.html)
 - 🗺️ [Day 8 — Multi-hazard map](tamil_nadu_multihazard_map.html)
 - 🗺️ [Day 12 — Tamil Nadu + Mozambique combined map](mozambique_tamil_nadu_combined_map.html)
+- 🗺️ [Day 16 — 570 school large scale map](tamil_nadu_570_schools_map.html)
 
 ## Publication Maps
 - 🖼️ [3-panel scenario map (300 DPI)](tamil_nadu_publication_map.png)
@@ -109,8 +127,8 @@ climate projections.
 - 📄 [Tamil Nadu PDF Report](tamil_nadu_flood_risk_report.pdf)
 - 📄 [Multi-Country PDF Report](multi_country_risk_report.pdf)
 - 📊 [Excel Decision Report](tamil_nadu_school_risk_report.xlsx)
+- 📋 [570 School Risk Dataset](tamil_nadu_570_schools_risk.csv)
 - 📋 [H x E x V Risk Scores](tamil_nadu_hev_risk.csv)
-- 📋 [Multi-hazard Scores](tamil_nadu_multihazard_scores.csv)
 - 📋 [Mozambique Risk Scores](mozambique_risk_scores.csv)
 - 📋 [Combined 25-school Dataset](combined_tamil_nadu_mozambique.csv)
 

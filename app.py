@@ -29,8 +29,8 @@ st.markdown("""
 st.markdown("""
 <div class="main-header">
     <h1>🏫 School Flood Risk Dashboard</h1>
-    <p>UNICEF Giga Initiative — Tamil Nadu + Mozambique Climate Hazard Assessment</p>
-    <p>570 Tamil Nadu Schools + 10 Mozambique Schools | 6 Data Sources</p>
+    <p>Multi-Country Climate Hazard Assessment — Tamil Nadu + Mozambique Climate Hazard Assessment</p>
+    <p>580 Schools | 6 Satellite & Climate Data Sources | 40+ Years of Data</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -384,7 +384,7 @@ with st.expander("📖 Methodology"):
     """)
 
 st.caption(
-    "Data: Sentinel-1, JRC, GFD, ERA5, IBTrACS | "
-    "UNICEF Giga Initiative | "
+    "Data: Sentinel-1 SAR, JRC Surface Water, Global Flood Database, "
+    "ERA5, IBTrACS Cyclones | "
     "github.com/ayyanarh1/tamil-nadu-school-flood-risk"
 )

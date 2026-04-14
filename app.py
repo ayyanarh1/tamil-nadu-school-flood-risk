@@ -30,7 +30,7 @@ st.markdown("""
 <div class="main-header">
     <h1>🏫 School Flood Risk Dashboard</h1>
     <p>Multi-Country Climate Hazard Assessment — Tamil Nadu + Mozambique Climate Hazard Assessment</p>
-    <p>580 Schools | 6 Satellite & Climate Data Sources | 40+ Years of Data</p>
+    <p>India (Tamil Nadu) + Mozambique | 580 Schools | 6 Data Sources</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -42,7 +42,8 @@ def load_data():
         'tamil-nadu-school-flood-risk/main/'
         'tamil_nadu_570_schools_risk.csv'
     )
-    tn_df['country'] = 'Tamil Nadu'
+    tn_df['country'] = 'India'
+    tn_df['state'] = 'Tamil Nadu'
     tn_df = tn_df.rename(columns={
         'connectivity': 'connectivity_status'
     })
@@ -113,6 +114,14 @@ country = st.sidebar.multiselect(
     "Country",
     options=df["country"].unique(),
     default=df["country"].unique()
+)
+
+state = st.sidebar.multiselect(
+    "State",
+    options=df[df['country']=='India']['state'].dropna().unique()
+    if 'state' in df.columns else [],
+    default=df[df['country']=='India']['state'].dropna().unique()
+    if 'state' in df.columns else []
 )
 
 district = st.sidebar.multiselect(
@@ -216,6 +225,7 @@ with tab1:
                 f"<b>{row['school_name']}</b><br>"
                 f"District: {row['district']}<br>"
                 f"Country: {row['country']}<br>"
+                f"State: {row.get('state', '')}<br>"
                 f"Connectivity: {row['connectivity_status']}<br>"
                 f"Score: {row['final_score']}<br>"
                 f"Risk: <b>{row['risk_tier']}</b>",
